@@ -19,7 +19,28 @@ export default function Cadastro(){
     })
 
     function handleSignIn(data){
-        console.log (data);
+        console.log (data.email + data.password);
+        fetch('http://localhost:8080/usuario', {
+  method: 'POST',
+  body: JSON.stringify({
+    nome:"gabriel",
+    email: data.email,
+    senha: data.password,
+   
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then(response => {
+
+    if(response.status == 400){
+      console.log("esse email a esta em uso")
+    }else{
+      console.log("cadastrado com sucesso")
+    }
+
+  });
     }
 
 
