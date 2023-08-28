@@ -20,7 +20,7 @@ export default function Cadastro(){
 
     function handleSignIn(data){
         console.log (data.email + data.password);
-        fetch('http://localhost:8080/usuario', {
+        fetch('https://tcc-production-e100.up.railway.app/usuario', {
   method: 'POST',
   body: JSON.stringify({
     nome:"gabriel",
