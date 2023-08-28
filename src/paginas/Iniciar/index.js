@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native';
+import styles from './style';
+
 
 export default function iniciar(){ 
     const navigation = useNavigation();
@@ -27,34 +29,3 @@ export default function iniciar(){
       );
 }
 
-const styles = StyleSheet.create({
-  Botao: {
-    marginTop: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#17A558',
-    width: 250,
-    height: 50,
-    left: 75,
-    borderRadius: 50
-  },
-  Segundobotao:{
-    marginTop: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#B1D3C1',
-    width: 250,
-    height: 50,
-    left: 75,
-    borderRadius: 50
-  },
-  botaopular:{
-    marginTop: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 250,
-    height: 50,
-    left: 75,
-    borderRadius: 50,
-  }
-})
