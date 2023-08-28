@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, TextInput} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
+import styles from './style';
 import * as yup from 'yup';
 
 
@@ -19,7 +20,6 @@ export default function Cadastro(){
     })
 
     function handleSignIn(data){
-        console.log (data.email + data.password);
         fetch('https://tcc-production-e100.up.railway.app/usuario', {
   method: 'POST',
   body: JSON.stringify({
@@ -35,9 +35,9 @@ export default function Cadastro(){
   .then(response => {
 
     if(response.status == 400){
-      console.log("esse email a esta em uso")
+      Alert.alert("Ops!","esse email a esta em uso")
     }else{
-      console.log("cadastrado com sucesso")
+      Alert.alert("Sucesso!","cadastrado com sucesso")
     }
 
   });
@@ -133,46 +133,4 @@ export default function Cadastro(){
       );
 }
 
-const styles = StyleSheet.create({
-  Botao: {
-    marginTop: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#17A558',
-    width: 250,
-    height: 50,
-    left: 75,
-    borderRadius: 50
-  },
-  Textocadas: {
-    fontSize:25,
-    alignItems: 'center',
-    justifyContent: 'center',
-    left: 20,
-    marginTop: 100
-  },
-  Inputs: {
-    height: 45,
-    borderWidth: 1,
-    borderColor: '#B1D3C1',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 5,
-    borderRadius: 15,
-    backgroundColor: '#B1D3C1'
-  },
-  botaofazerlogin: {
-    marginTop: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 250,
-    height: 50,
-    left: 70
-  },
-  Error: {
-    alignSelf: 'flex-start',
-    color: '#ff375b',
-    marginBottom: 8,
-    left: 30
-  }
-})
+
