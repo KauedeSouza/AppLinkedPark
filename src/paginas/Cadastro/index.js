@@ -23,7 +23,6 @@ export default function Cadastro(){
         fetch('https://tcc-production-e100.up.railway.app/usuario', {
   method: 'POST',
   body: JSON.stringify({
-    nome:"gabriel",
     email: data.email,
     senha: data.password,
    

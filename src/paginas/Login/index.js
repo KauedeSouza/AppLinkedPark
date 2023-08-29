@@ -21,7 +21,29 @@ export default function Login(){
     })
 
     function handleSignIn(data){
-        console.log (data);
+      fetch('https://tcc-production-e100.up.railway.app/usuario/login', {
+  method: 'POST',
+  body: JSON.stringify({
+    email: data.email,
+    senha: data.password,
+   
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then(response => {
+
+    if(response.status == 400){
+      Alert.alert("usuario não encontrado !","erro ao efetuar login")
+    }else if(response.status == 204){
+      Alert.alert("usuario não encontrado !","erro ao efetuar login")
+    }else if(response.status == 200){
+
+      localStorage.setItem("nome", response.email);
+            Alert.alert("usuario encontrado !","login efetuado com sucesso")
+    }
+  });
     }
 
 
