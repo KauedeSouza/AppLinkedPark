@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, TextInput} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';

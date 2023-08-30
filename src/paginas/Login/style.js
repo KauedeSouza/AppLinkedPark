@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
       marginRight: 20,
       marginTop: 5,
       borderRadius: 15,
-      backgroundColor: '#B1D3C1'
+      backgroundColor: '#B1D3C1',
+      padding: 3
     },
     botaofazerlogin: {
       marginTop: 10,

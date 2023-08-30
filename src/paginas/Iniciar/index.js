@@ -21,7 +21,7 @@ export default function iniciar(){
           <TouchableOpacity style={styles.Segundobotao} onPress={ () => navigation.navigate('Cadastro') }>
             <Text style={{color: '#2F4F4F'}}>Não tem conta? - Cadastre-se</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.botaopular}>
+          <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaInicial') }>
             <Text style={{color: '#FFF', fontSize: 25}}>Pular  <Icon name="rightcircle" size={30} color='#FFF'/></Text>
           </TouchableOpacity>
         </View>
