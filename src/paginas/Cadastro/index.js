@@ -20,7 +20,7 @@ export default function Cadastro(){
     })
 
     function handleSignIn(data){
-        fetch('https://tcc-production-e100.up.railway.app/usuario', {
+        fetch('https://tcc-production-e100.up.railway.app/api/usuario', {
   method: 'POST',
   body: JSON.stringify({
     email: data.email,
@@ -30,19 +30,19 @@ export default function Cadastro(){
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
-})
-  .then(response => {
-
+}).then(response => {
     if(response.status == 400){
       Alert.alert("Ops!","esse email a esta em uso")
-    }else{
+    }else if (response.status == 201){
       Alert.alert("Sucesso!","cadastrado com sucesso")
-      console.log("cadastrado")
+    }else{
+      Alert.alert("Ops!","Erro no servidor verifique o email e tente novamente!")
+
     }
 
   });
     }
-console.log(localStorage.getItem("email"))
+
 
       return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
@@ -79,29 +79,6 @@ console.log(localStorage.getItem("email"))
               <Controller
                   control={control}
                   name="password"
-                  render={({field: {onChange, onBlur, value}}) => (
-
-                    <TextInput
-                     style={[styles.Inputs, {
-                      borderWidth: errors.password && 2,
-                      borderColor: errors.password && '#ff375b'
-                    } ]} 
-
-                    onChangeText={onChange}
-                    onBlur={onBlur}
-                    value={value}
-                    placeholder='  Digite sua Senha'
-                    secureTextEntry={true}
-                  />
-                )}
-              />
-              {errors.password && <Text style={styles.Error}>{errors.password?.message}</Text>}
-
-              <Text style={{fontSize: 20, left: 30, marginTop: 30}}>Confirme sua senha:</Text>
-
-              <Controller
-                  control={control}
-                  name="passwordconfirm"
                   render={({field: {onChange, onBlur, value}}) => (
 
                     <TextInput

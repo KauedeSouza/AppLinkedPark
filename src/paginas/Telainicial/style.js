@@ -24,6 +24,31 @@ const styles = StyleSheet.create({
         paddingHorizontal: 1,
         marginTop: 60
       },
+      viewmax: {
+        flexDirection: 'row', 
+        paddingHorizontal: 1,
+        marginTop: 24,
+        backgroundColor: '#B1D3C1',
+        height:90
+      },
+      views: {
+        flexDirection: 'row', 
+        paddingHorizontal: 1,
+        marginTop: 2,
+        marginLeft: 18
+      },
+      vieww: {
+        flexDirection: 'row', 
+        paddingHorizontal: 1,
+        marginTop: 10,
+        marginLeft: 30
+      },
+      Imagens: {
+        width: 135,
+        height: 150,
+        left: 1,
+        borderRadius: 25
+    }
   })
 
   
