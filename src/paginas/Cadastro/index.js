@@ -37,11 +37,12 @@ export default function Cadastro(){
       Alert.alert("Ops!","esse email a esta em uso")
     }else{
       Alert.alert("Sucesso!","cadastrado com sucesso")
+      console.log("cadastrado")
     }
 
   });
     }
-
+console.log(localStorage.getItem("email"))
 
       return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
@@ -130,6 +131,7 @@ export default function Cadastro(){
         </View>
         
       );
+      
 }
 
 

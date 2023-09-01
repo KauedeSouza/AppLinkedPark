@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, TextInput} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, TextInput,Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -21,7 +21,7 @@ export default function Login(){
     })
 
     function handleSignIn(data){
-      fetch('https://tcc-production-e100.up.railway.app/usuario/login', {
+      fetch('https://tcc-production-e100.up.railway.app/api/usuario/login', {
   method: 'POST',
   body: JSON.stringify({
     email: data.email,
@@ -32,18 +32,27 @@ export default function Login(){
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
-  .then(response => {
+.then(response => {
+  if (response.status === 200) {
+    return response.json(); 
+  } else {
+    Alert.alert("Usuário não encontrado!", "Erro ao efetuar login");
+  }
+})
+.then(data => {
+  if (data) {
+    localStorage.setItem("token",data.token)
+    localStorage.setItem("email",data.select.email)
+    localStorage.setItem("senha",data.select.senha)
 
-    if(response.status == 400){
-      Alert.alert("usuario não encontrado !","erro ao efetuar login")
-    }else if(response.status == 204){
-      Alert.alert("usuario não encontrado !","erro ao efetuar login")
-    }else if(response.status == 200){
-
-      localStorage.setItem("nome", response.email);
-            Alert.alert("usuario encontrado !","login efetuado com sucesso")
-    }
-  });
+    console.log("Dados de resposta da API:", data);
+    Alert.alert("Usuário encontrado!", "Login efetuado com sucesso");
+  }
+})
+.catch(error => {
+  console.error("Erro durante a requisição:", error);
+  Alert.alert("Erro", "Ocorreu um erro durante a requisição");
+});
     }
 
 
@@ -125,4 +134,7 @@ export default function Login(){
 
       );
 }
+
+
+
 
