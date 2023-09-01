@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
-import Routes from '../../componentes/routes';
+import Routes from '../../componentes/menu/routes';
 import BannerParks from '../../componentes/bannerParks';
 
 
