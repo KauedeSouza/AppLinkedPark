@@ -5,6 +5,8 @@ import { createNativeStackNavigator} from '@react-navigation/native-stack';
 import iniciar from './src/paginas/Iniciar';
 import Cadastro from './src/paginas/Cadastro'
 import Login from './src/paginas/Login'
+import Telainicial from './src/paginas/Telainicial'
+import TelaInicial from './src/paginas/Telainicial';
 
 const Stack = createNativeStackNavigator()
 
@@ -29,6 +31,13 @@ export default function App(){
           <Stack.Screen
            name='Login'
            component={Login}
+           options={{
+            headerShown: false
+          }}
+          />
+          <Stack.Screen
+           name='TelaInicial'
+           component={TelaInicial}
            options={{
             headerShown: false
           }}
