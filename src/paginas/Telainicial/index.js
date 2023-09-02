@@ -1,14 +1,23 @@
 import React from 'react';
-import {View, Image, TextInput, TouchableOpacity, Text} from 'react-native';
+import {View, Image, TextInput, TouchableOpacity, Text, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
 import styles from './style';
 import Routes from '../../componentes/menu/routes';
 import BannerParks from '../../componentes/bannerParks';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-export default function TelaInicial(){ 
+export default function TelaInicial({ route }){ 
+  
+if(route.params == null ){
+  Alert.alert("Atenção!","você está entrando em um modo com limitações para usar o app com todos os recursos faça o login")
+}else{
+  AsyncStorage.setItem("logado","true")
+}
+
+
 
       return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>

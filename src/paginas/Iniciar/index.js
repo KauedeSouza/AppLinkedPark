@@ -3,10 +3,13 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import styles from './style';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function iniciar(){ 
     const navigation = useNavigation();
+
+AsyncStorage.clear.apply
 
 
       return(

@@ -40,7 +40,10 @@ export default function Cadastro(){
 
     }
 
-  });
+  }).catch(errors =>{
+  console.error("Erro durante a requisição:", errors);
+  Alert.alert("Erro", "Ocorreu um erro durante a requisição");
+});
     }
 
 

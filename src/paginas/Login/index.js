@@ -6,6 +6,8 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import styles from './style';
 import * as yup from 'yup';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 const schema = yup.object({
@@ -33,6 +35,7 @@ export default function Login(){
   },
 })
 .then(response => {
+ 
   if (response.status === 200) {
     return response.json(); 
   } else {
@@ -41,9 +44,14 @@ export default function Login(){
 })
 .then(data => {
   if (data) {
-    localStorage.setItem("token",data.token)
-    localStorage.setItem("email",data.select.email)
-    localStorage.setItem("senha",data.select.senha)
+    console.log(data)
+
+  AsyncStorage.setItem('email',data.select.email);
+  AsyncStorage.setItem('senha',data.select.senha);
+  AsyncStorage.setItem('token',data.token);
+ var logado = true
+  navigation.navigate('TelaInicial',logado);
+
 
     console.log("Dados de resposta da API:", data);
     Alert.alert("Usuário encontrado!", "Login efetuado com sucesso");
