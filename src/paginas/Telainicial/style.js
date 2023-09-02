@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
       },
       viewmax: {
         flexDirection: 'row', 
-        paddingHorizontal: 1,
-        marginTop: 24,
+        paddingHorizontal: 0,
+        marginTop: 0,
         backgroundColor: '#B1D3C1',
-        height:90
+        height:60
       },
       views: {
         flexDirection: 'row', 

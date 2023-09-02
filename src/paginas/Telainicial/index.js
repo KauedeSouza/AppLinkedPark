@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, TextInput, TouchableOpacity, Text, Alert} from 'react-native';
+import {View, Image, TextInput, TouchableOpacity, Text, Alert, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
@@ -21,7 +21,8 @@ if(route.params == null ){
 
       return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
-            <View style={styles.view}>
+          <ScrollView>
+          <View style={styles.view}>
                 <Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} />
                 <TextInput style={styles.Input} placeholder= 'Pesquisar'/>
                 <TouchableOpacity><Icon name="wechat" size={40} color='#17A558'/></TouchableOpacity>
@@ -49,15 +50,13 @@ if(route.params == null ){
             <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
             </View>
             
+            <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
+         <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
+        
 
+            </ScrollView>
+            
             <Routes></Routes>
-
-
-          <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-
-
-
-
         </View>
       );
 }

@@ -7,7 +7,16 @@ import styles from '../../paginas/Telainicial/style';
 export default function Routes(){ 
 
       return(
-        <View style= {{flex:1, backgroundColor: '#FFF'}}>
+        <View style= {{  
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        backgroundColor: '#B1D3C1',
+        right: 0,
+        padding: 10,
+        alignItems: 'center',
+        margin: 0, 
+        }}>
             <View style={styles.viewmax}>
                 <TouchableOpacity>
                     <View 
@@ -60,7 +69,7 @@ export default function Routes(){
                             height: 35,
                             }}/>
 
-                        <Text style={{marginTop: -25, marginLeft: 30, fontSize: 16, color: '#fff'}}>Notificações</Text>
+                        <Text style={{marginTop: -25, marginLeft: 20, fontSize: 16, color: '#fff'}}>Notificações</Text>
 
                            </TouchableOpacity>
             </View>    
