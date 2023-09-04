@@ -5,9 +5,11 @@ import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../../paginas/Telainicial/style';
+import {useNavigation} from '@react-navigation/native';
 
 
 export default function Routes(){ 
+    const navigation = useNavigation();
 
       return(
         <View style= {{  
@@ -21,7 +23,7 @@ export default function Routes(){
         margin: 0, 
         }}>
             <View style={styles.viewmax}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={ () => navigation.navigate('TelaInicial') }>
                     <View 
                     style={{ 
                             marginTop: 15,

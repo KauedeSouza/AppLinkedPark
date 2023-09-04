@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useNavigation} from '@react-navigation/native';
 import styles from './style';
 import Routes from '../../componentes/menu/routes';
 import BannerParks from '../../componentes/bannerParks';
@@ -11,6 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function TelaInicial({ route }){ 
+  const navigation = useNavigation();
   
 if(route.params == null ){
   Alert.alert("Atenção!","você está entrando em um modo com limitações para usar o app com todos os recursos faça o login")
@@ -32,8 +34,8 @@ if(route.params == null ){
             <BannerParks></BannerParks>  
 
             <View style={styles.views}>
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
             <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/></TouchableOpacity>
             </View>
 
@@ -47,7 +49,7 @@ if(route.params == null ){
 
             <BannerParks></BannerParks>  
 
-            <TouchableOpacity style={{height: 160}}>
+            <TouchableOpacity style={{height: 160}} >
             <View style={{backgroundColor: '#B1D3C1', marginTop: 15, borderRadius: 35, width: 355, height: 150, marginLeft: 20}}>
                         <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
                         <Text style={{
