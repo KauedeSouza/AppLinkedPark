@@ -3,6 +3,7 @@ import {View, Image, TextInput, TouchableOpacity, Text, Alert, ScrollView} from 
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
+import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './style';
 import Routes from '../../componentes/menu/routes';
 import BannerParks from '../../componentes/bannerParks';
@@ -23,35 +24,62 @@ if(route.params == null ){
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
           <ScrollView>
           <View style={styles.view}>
-                <Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} />
+                <TouchableOpacity><Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} /></TouchableOpacity>
                 <TextInput style={styles.Input} placeholder= 'Pesquisar'/>
-                <TouchableOpacity><Icon name="wechat" size={40} color='#17A558'/></TouchableOpacity>
+                <TouchableOpacity><Icons name="chat" size={40} color='#17A558'/></TouchableOpacity>
             </View>
 
             <BannerParks></BannerParks>  
 
             <View style={styles.views}>
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 55, height: 49, marginLeft: 50, marginTop: 25, borderRadius: 10}}><Iconss name="tree" size={40} color='#526856' style={{marginLeft: 10, marginTop: 4}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 55, height: 49, marginLeft: 50, marginTop: 25, borderRadius: 10}}><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 2, marginTop: 4}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 55, height: 49, marginLeft: 50, marginTop: 25, borderRadius: 10}}><Icons name="calendar" size={40} color='#526856' style={{marginLeft: 8, marginTop: 4}}/></TouchableOpacity>
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/></TouchableOpacity>
             </View>
 
             <View style={styles.vieww}>
-              <Text style={{marginLeft: 45}}>Parques</Text>
-              <Text style={{marginLeft: 70}}>Lazer</Text>
-              <Text style={{marginLeft: 62}}>Calendário</Text>
+              <Text style={{marginLeft: 47}}>Parques</Text>
+              <Text style={{marginLeft: 74}}>Lazer</Text>
+              <Text style={{marginLeft: 67}}>Calendário</Text>
             </View>
 
             <Text style={{fontSize:30, marginTop: 20, marginLeft: 75}}>Parque Recomendado</Text>
 
             <BannerParks></BannerParks>  
 
+            <TouchableOpacity style={{height: 160}}>
             <View style={{backgroundColor: '#B1D3C1', marginTop: 15, borderRadius: 35, width: 355, height: 150, marginLeft: 20}}>
-            <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
-            </View>
+                        <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
+                        <Text style={{
+                              marginLeft: 140,
+                              marginTop: -140,
+                              fontSize: 18
+                            }}>Parque da Consciência Negra
+                        </Text>
+
+                        <Text style={{
+                          marginLeft: 140,
+                          marginTop: 15,
+                            fontSize: 12
+                            }}>Localizado na Cidade Tiradentes,
+                          Zona Leste da capital paulista e foi criado para preservar as nascentes do Córrego Itaquera
+                          e da mata em estágio de regeneração.
+                        </Text>
+
+                        </View>
+
+                        <Icon name="rightcircle"
+                        size={30}
+                        color='#17A558' 
+                        style={{
+                            marginLeft: 360,
+                            marginTop: -85
+                        }}/>
+                        
+            </TouchableOpacity>
             
             <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-         <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
+            <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
         
 
             </ScrollView>

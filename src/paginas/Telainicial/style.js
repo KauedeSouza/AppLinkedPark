@@ -34,13 +34,13 @@ const styles = StyleSheet.create({
       views: {
         flexDirection: 'row', 
         paddingHorizontal: 1,
-        marginTop: 2,
+        marginTop: -13,
         marginLeft: 18
       },
       vieww: {
         flexDirection: 'row', 
         paddingHorizontal: 1,
-        marginTop: 10,
+        marginTop: 5,
         marginLeft: 30
       },
       Imagens: {

@@ -1,6 +1,9 @@
 import React from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import Icons from 'react-native-vector-icons/Entypo';
+import Iconss from 'react-native-vector-icons/FontAwesome';
+import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../../paginas/Telainicial/style';
 
 
@@ -20,56 +23,52 @@ export default function Routes(){
             <View style={styles.viewmax}>
                 <TouchableOpacity>
                     <View 
-                    style={{
-                            marginRight:20, 
-                            marginTop: 25,
-                            marginLeft: 5 , 
-                            backgroundColor: '#17A558',
-                            borderRadius: 20,
+                    style={{ 
+                            marginTop: 15,
+                            marginLeft: 85 , 
                             width: 120,
                             height: 35,
                             }}>
-                        <Icon name="home" size={27} color='#fff'/>
+                        <Icons name="home" size={27} color='#526856'/>
 
-                        <Text style={{marginTop: -19, marginLeft: 35, fontSize: 16, color: '#fff'}}>Inicio</Text>
+                        <Text style={{marginTop: -19, marginLeft: 35, fontSize: 16, color: '#526856'}}>Início</Text>
 
                             </View>
                            </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity 
+                style={{
+                    marginTop: -35,
+                    marginLeft: -1,
+                    backgroundColor: '#17A558',
+                    borderRadius: 30,
+                    width: 100,
+                    height: 55,
+                    }}>
                     <Icon name="search1"
                         size={27}
                         color='#fff' 
                         style={{
-                            marginRight:20,
-                            marginTop: 25,
-                            marginLeft: -5,
-                            backgroundColor: '#17A558',
-                            borderRadius: 20,
-                            width: 120,
-                            height: 35,
-                            }}
-                            />
+                            marginLeft: 33,
+                            marginTop: 10
+                        }}/>
 
-                        <Text style={{marginTop: -25, marginLeft: 35, fontSize: 16, color: '#fff'}}>Pesquisar</Text>
+                        <Text style={{marginTop: 20, marginLeft: 20, fontSize: 16, color: '#526856'}}>Pesquisar</Text>
 
                             </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Icon name="bells"
+                    <Iconsss name="bell"
                         size={27}
-                        color='#fff' 
+                        color='#526856' 
                         style={{
-                            marginRight:20,
-                            marginTop: 25,
-                            marginLeft: -5,
-                            backgroundColor: '#17A558',
-                            borderRadius: 20, 
+                            marginTop: 15,
+                            marginLeft: 25, 
                             width: 120,
                             height: 35,
                             }}/>
 
-                        <Text style={{marginTop: -25, marginLeft: 20, fontSize: 16, color: '#fff'}}>Notificações</Text>
+                        <Text style={{marginTop: -25, marginLeft: 60, marginRight:67, fontSize: 16, color: '#526856'}}>Notificações</Text>
 
                            </TouchableOpacity>
             </View>    
