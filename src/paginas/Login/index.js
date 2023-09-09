@@ -52,8 +52,6 @@ export default function Login(){
  var logado = true
   navigation.navigate('TelaInicial',logado);
 
-
-    console.log("Dados de resposta da API:", data);
     Alert.alert("Usuário encontrado!", "Login efetuado com sucesso");
   }
 })
