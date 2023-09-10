@@ -13,7 +13,7 @@ export default function TelaParques(){
     const [dados, setDados] = useState([]);
 
 
-    async function fazerSolicitacaoComToken(token) {
+    async function fazerSolicitacaoComToken() {
         try {
           // Obtém o token de AsyncStorage
           const token = await AsyncStorage.getItem("token");
