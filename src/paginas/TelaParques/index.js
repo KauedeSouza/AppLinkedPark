@@ -10,18 +10,6 @@ export default function TelaParques(){
     const navigation = useNavigation();
     const [dados, setDados] = useState([]);
 
-    function executarSolicitacaoAIntervalos() {
-      fazerSolicitacaoComToken();
-    }
-    
-    // Chame a função imediatamente para iniciar a primeira solicitação
-    executarSolicitacaoAIntervalos();
-    
-    // Defina um intervalo de 1 minuto (60.000 milissegundos) para chamar a função repetidamente
-    const intervaloDe1Minuto = 60000;
-    
-    // Configurar setInterval para chamar a função a cada 1 minuto
-    const intervalId = setInterval(executarSolicitacaoAIntervalos, intervaloDe1Minuto);
 
     async function fazerSolicitacaoComToken() {
       try {
@@ -57,6 +45,7 @@ export default function TelaParques(){
     }
     
   
+    fazerSolicitacaoComToken();
     return(
       <View style= {{flex:1, backgroundColor: '#FFF'}}>
       <ScrollView>
@@ -115,7 +104,7 @@ export default function TelaParques(){
 
 
                 </ScrollView>
-                <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
+                 <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
 
             
         <Routes></Routes>
