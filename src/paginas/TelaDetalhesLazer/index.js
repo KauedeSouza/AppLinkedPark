@@ -11,6 +11,16 @@ import Stars from 'react-native-stars';
 export default function TelaDetalhes(){
     const navigation = useNavigation();
 
+    const [text, setText] = useState('');
+    
+    const handleTextInputChange = (inputText) => {
+      setText(inputText);
+    };
+  
+    const handleButtonPress = () => {
+      console.log(text);
+    };
+
 
     return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
@@ -87,8 +97,8 @@ export default function TelaDetalhes(){
             fontSize: 15,
           }}
           >Digite sua opnião:</Text>
-          <TextInput style={{marginLeft: 20, marginTop: 7, width: 90}} placeholder= 'Escreva aqui'/>
-          <TouchableOpacity><Icon name="rightcircle"size={30}color='#17A558' style={{marginLeft: 330,marginTop: -35}}/></TouchableOpacity>
+          <TextInput style={{marginLeft: 20, marginTop: 7, width: 90}} placeholder= 'Escreva aqui'  onChangeText={handleTextInputChange} alue={text}/>
+          <TouchableOpacity onPress={handleButtonPress}><Icon name="rightcircle"size={30}color='#17A558' style={{marginLeft: 330,marginTop: -35}}/></TouchableOpacity>
 
           <View
             style={{
