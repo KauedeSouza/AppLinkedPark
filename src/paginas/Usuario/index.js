@@ -56,7 +56,7 @@ export default function Usuario(){
               marginTop: 30,
               borderRadius: 35,
               width: 375,
-              height: 230,
+              height: 280,
               marginLeft: 17,
             }}
           >
@@ -64,6 +64,7 @@ export default function Usuario(){
             <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Quem é UP?</Text></TouchableOpacity>
             <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Favoritos</Text></TouchableOpacity>
             <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Sobre App</Text></TouchableOpacity>
+            <TouchableOpacity onPress={ () => navigation.navigate('iniciar')}><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Sair</Text></TouchableOpacity>
           </View>
 
           
