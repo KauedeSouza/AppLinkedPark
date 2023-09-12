@@ -87,7 +87,8 @@ export default function TelaDetalhes(){
             fontSize: 15,
           }}
           >Digite sua opnião:</Text>
-          <TextInput style={{marginLeft: 20, marginTop: 7}} placeholder= 'Pesquisar'/>
+          <TextInput style={{marginLeft: 20, marginTop: 7, width: 90}} placeholder= 'Escreva aqui'/>
+          <TouchableOpacity><Icon name="rightcircle"size={30}color='#17A558' style={{marginLeft: 330,marginTop: -35}}/></TouchableOpacity>
 
           <View
             style={{
