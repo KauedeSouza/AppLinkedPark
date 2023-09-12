@@ -26,7 +26,7 @@ if(route.params == null ){
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
           <ScrollView>
           <View style={styles.view}>
-                <TouchableOpacity><Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} /></TouchableOpacity>
+                <TouchableOpacity onPress={ () => navigation.navigate('Usuario')}><Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} /></TouchableOpacity>
                 <TextInput style={styles.Input} placeholder= 'Pesquisar'/>
                 <TouchableOpacity><Icons name="chat" size={40} color='#17A558'/></TouchableOpacity>
             </View>

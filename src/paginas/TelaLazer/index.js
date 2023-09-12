@@ -58,11 +58,12 @@ export default function TelaLazer(){
         <TouchableOpacity
           key={item.idLazer}
           style={{ height: 160 }}
+          onPress={ () => navigation.navigate('TelaDetalhesLazer')}
         >
           <View
             style={{
               backgroundColor: '#B1D3C1',
-              marginTop: 45,
+              marginTop: 10,
               borderRadius: 35,
               width: 355,
               height: 150,
@@ -105,10 +106,6 @@ export default function TelaLazer(){
 
 
                 </ScrollView>
-
-                
-
-                <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
  
             
         <Routes></Routes>
