@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
       borderRadius: 50
     },
     botaopular:{
-      marginTop: 20,
+      marginTop: 15,
       alignItems: 'center',
       justifyContent: 'center',
       width: 250,

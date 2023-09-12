@@ -48,8 +48,8 @@ export default function TelaLazer(){
 
       fazerSolicitacaoComToken();
     return(
-            <View>
-                <ScrollView>
+      <View style= {{flex:1, backgroundColor: '#FFF'}}>
+      <ScrollView>
                 <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaInicial')} >
                 <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Lazer</Text>
             </TouchableOpacity>
@@ -69,7 +69,7 @@ export default function TelaLazer(){
               marginLeft: 20,
             }}
           >
-             <Image source= {require(`../../Imagens/${item.imagem}`)} style={styles.Imagens} />
+             <Image  source={{uri: item.imagem}} style={styles.Imagens} />
             <Text
               style={{
                 marginLeft: 140,
@@ -104,19 +104,12 @@ export default function TelaLazer(){
       ))}
 
 
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
                 </ScrollView>
+
+                
+
+                <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
+ 
             
         <Routes></Routes>
         </View>

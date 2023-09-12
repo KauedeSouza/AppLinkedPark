@@ -1,57 +1,65 @@
-import React,{useEffect,useState} from 'react';
+import React,{useState} from 'react';
 import {View, Image, TouchableOpacity, Text, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import Routes from '../../componentes/menu/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export default function TelaParques(){
-
-
     const navigation = useNavigation();
     const [dados, setDados] = useState([]);
 
+    function executarSolicitacaoAIntervalos() {
+      fazerSolicitacaoComToken();
+    }
+    
+    // Chame a função imediatamente para iniciar a primeira solicitação
+    executarSolicitacaoAIntervalos();
+    
+    // Defina um intervalo de 1 minuto (60.000 milissegundos) para chamar a função repetidamente
+    const intervaloDe1Minuto = 60000;
+    
+    // Configurar setInterval para chamar a função a cada 1 minuto
+    const intervalId = setInterval(executarSolicitacaoAIntervalos, intervaloDe1Minuto);
 
     async function fazerSolicitacaoComToken() {
-        try {
-          // Obtém o token de AsyncStorage
-          const token = await AsyncStorage.getItem("token");
-            
-        
-          if (token) {
-            // Construa o cabeçalho Authorization
-            const headers = {
-              'Content-type': 'application/json; charset=UTF-8',
-              'Authorization': `Bearer ${token}`
-            };
-      
-            // Faça a solicitação usando o cabeçalho personalizado
-            const response = await fetch('https://tcc-production-e100.up.railway.app/api/lazer', {
-              method: 'GET', // ou outro método HTTP
-              headers: headers
-            });
-      
-            if (response.status === 200) {
-              const data = await response.json();
-              console.log("Dados da resposta:", data);
-              setDados(data)
-            } else {
-              console.error("Erro na solicitação:", response.status);
-            }
+      try {
+        // Obtém o token de AsyncStorage
+        const token = await AsyncStorage.getItem("token");
+    
+        if (token) {
+          // Construa o cabeçalho Authorization
+          const headers = {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Authorization': `Bearer ${token}`
+          };
+    
+          // Faça a solicitação usando o cabeçalho personalizado
+          const response = await fetch('https://tcc-production-e100.up.railway.app/api/lazer', {
+            method: 'GET', // ou outro método HTTP
+            headers: headers
+          });
+    
+          if (response.status === 200) {
+            const data = await response.json();
+            console.log("Dados da resposta:", data);
+            setDados(data);
           } else {
-            console.log("Token não encontrado em AsyncStorage.");
+            console.error("Erro na solicitação:", response.status);
           }
-        } catch (error) {
-          console.error("Erro ao fazer a solicitação:", error);
+        } else {
+          console.log("Token não encontrado em AsyncStorage.");
         }
+      } catch (error) {
+        console.error("Erro ao fazer a solicitação:", error);
       }
-      
-
-      fazerSolicitacaoComToken();
+    }
+    
+  
     return(
-            <View>
-                <ScrollView>
+      <View style= {{flex:1, backgroundColor: '#FFF'}}>
+      <ScrollView>
                 <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaInicial')} >
                 <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Parques</Text>
             </TouchableOpacity>
@@ -71,7 +79,7 @@ export default function TelaParques(){
               marginLeft: 20,
             }}
           >
-             <Image source= {require(`../../Imagens/${item.imagem}`)} style={styles.Imagens} />
+             <Image  source={{uri: item.imagem}} style={styles.Imagens} />
             <Text
               style={{
                 marginLeft: 140,
@@ -106,20 +114,9 @@ export default function TelaParques(){
       ))}
 
 
-    
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
-                    <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-                    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-
                 </ScrollView>
+                <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
+
             
         <Routes></Routes>
         </View>

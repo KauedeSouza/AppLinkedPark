@@ -20,7 +20,7 @@ export default function Routes(){
         right: 0,
         padding: 10,
         alignItems: 'center',
-        margin: 0, 
+        margin: 0,
         }}>
             <View style={styles.viewmax}>
                 <TouchableOpacity onPress={ () => navigation.navigate('TelaInicial') }>

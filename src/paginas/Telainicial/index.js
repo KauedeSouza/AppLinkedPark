@@ -64,8 +64,7 @@ if(route.params == null ){
                           marginTop: 15,
                             fontSize: 12
                             }}>Localizado na Cidade Tiradentes,
-                          Zona Leste da capital paulista e foi criado para preservar as nascentes do Córrego Itaquera
-                          e da mata em estágio de regeneração.
+                          Zona Leste da capital paulista e foi criado para preservar as nascentes do Córrego Itaquera.
                         </Text>
 
                         </View>
