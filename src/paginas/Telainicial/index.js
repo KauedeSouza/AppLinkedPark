@@ -13,13 +13,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function TelaInicial({ route }){ 
   const navigation = useNavigation();
-  
+  /*
 if(route.params == null ){
   Alert.alert("Atenção!","você está entrando em um modo com limitações para usar o app com todos os recursos faça o login")
+}else if(AsyncStorage.getItem("logado")== "logado"){
+  AsyncStorage.setItem("logado","logado")
 }else{
-  AsyncStorage.setItem("logado","true")
-}
+  AsyncStorage.setItem("logado","logado")
 
+}
+*/
 
 
       return(
