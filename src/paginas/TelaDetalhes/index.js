@@ -8,8 +8,9 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import Stars from 'react-native-stars';
 
-export default function TelaDetalhes(){
+export default function TelaDetalhes({ route }){
     const navigation = useNavigation();
+  console.log(route.params)
 
    
       const [text, setText] = useState('');
@@ -27,11 +28,11 @@ export default function TelaDetalhes(){
     return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
             <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaParques')} >
-                <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Detalhes do Parque</Text>
+                <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/> {route.params.nome}</Text>
             </TouchableOpacity>
 
             <View>
-                <Image source= {require('../../Imagens/PQCSN.jpg')} 
+                <Image source={{uri: route.params.imagem}}
                     style={{
                     width: 386,
                     height: 170,
@@ -41,7 +42,7 @@ export default function TelaDetalhes(){
                     }}
 
                     />
-                    <Text style={{fontSize: 25, marginLeft: 75}}>Parque da consciência Negra</Text>
+                    <Text style={{fontSize: 25, marginLeft: 75}}>{route.params.nome}</Text>
             </View>
                 
 
@@ -77,9 +78,7 @@ export default function TelaDetalhes(){
                 marginTop: 15,
                 fontSize: 15,
               }}
-            >Localizado na Cidade Tiradentes, Zona Leste da capital paulista e 
-            foi criado para preservar as nascentes do Córrego Itaquera e da mata
-             em estágio de regeneração.
+            >{route.params.descricao}
             </Text>
           </View>
 

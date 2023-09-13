@@ -58,7 +58,7 @@ export default function TelaLazer(){
         <TouchableOpacity
           key={item.idLazer}
           style={{ height: 160 }}
-          onPress={ () => navigation.navigate('TelaDetalhesLazer')}
+          onPress={ () => navigation.navigate('TelaDetalhes',item)}
         >
           <View
             style={{

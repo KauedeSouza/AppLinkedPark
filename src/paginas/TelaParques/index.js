@@ -57,7 +57,7 @@ export default function TelaParques(){
         <TouchableOpacity
           key={item.idLazer}
           style={{ height: 160 }}
-          onPress={ () => navigation.navigate('TelaDetalhes')}
+          onPress={ () => navigation.navigate('TelaDetalhes',item)}
         >
           <View
             style={{
