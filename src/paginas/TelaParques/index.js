@@ -24,7 +24,7 @@ export default function TelaParques(){
           };
     
           // Faça a solicitação usando o cabeçalho personalizado
-          const response = await fetch('https://tcc-production-e100.up.railway.app/api/lazer', {
+          const response = await fetch('https://tcc-production-e100.up.railway.app/api/lazer/parque', {
             method: 'GET', // ou outro método HTTP
             headers: headers
           });

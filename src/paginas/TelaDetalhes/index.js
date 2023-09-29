@@ -22,12 +22,17 @@ export default function TelaDetalhes({ route }){
       const handleButtonPress = () => {
         console.log(text);
       };
-    
+      var redirect 
+    if( route.params.categoria == "lazer"){
+        redirect = "TelaLazer"
+    }else{
+      redirect = "TelaParques"
 
-
+    }
+ 
     return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
-            <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaParques')} >
+            <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate(redirect)} >
                 <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/> {route.params.nome}</Text>
             </TouchableOpacity>
 
