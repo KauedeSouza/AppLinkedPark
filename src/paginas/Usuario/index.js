@@ -14,6 +14,7 @@ export default function Usuario(){
 
     return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
+          <ScrollView>
             <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaInicial')} >
                 <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Usuário</Text>
             </TouchableOpacity>
@@ -24,9 +25,8 @@ export default function Usuario(){
               backgroundColor: '#B1D3C1',
               marginTop: 35,
               borderRadius: 35,
-              width: 395,
-              height: 130,
-              marginLeft: 40,
+              marginLeft: 20,
+              flex:4
             }}
             
           >
@@ -40,33 +40,33 @@ export default function Usuario(){
               backgroundColor: '#B1D3C1',
               marginTop: 30,
               borderRadius: 35,
-              width: 375,
-              height: 150,
-              marginLeft: 17,
+              marginLeft: 20,
+              marginRight: 20,
+              flex:4
             }}
           >
-            <TouchableOpacity><Text style={{marginTop:25, marginLeft:30, fontSize:20}}>Mudar foto</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Mudar conta</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:10, marginLeft:30, fontSize:20}}>Mudar foto</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Alterar senha</Text></TouchableOpacity>
             <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Apagar conta</Text></TouchableOpacity>
           </View>
-
           <View
             style={{
               backgroundColor: '#B1D3C1',
-              marginTop: 30,
+              marginTop: 20,
               borderRadius: 35,
-              width: 375,
-              height: 280,
-              marginLeft: 17,
+              marginLeft: 20,
+              marginRight: 20,
+              flex:5
             }}
           >
-            <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Fale conosco</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Quem é UP?</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Favoritos</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Sobre App</Text></TouchableOpacity>
-            <TouchableOpacity onPress={ () => navigation.navigate('iniciar')}><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Sair</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:10, marginLeft:30, fontSize:20}}>Fale conosco</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Quem é UP?</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Favoritos</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sobre App</Text></TouchableOpacity>
+            <TouchableOpacity onPress={ () => navigation.navigate('iniciar')}><Text style={{marginTop:15, marginLeft:30, fontSize:20}}>Sair</Text></TouchableOpacity>
           </View>
 
+          </ScrollView>
           
 
           <Routes></Routes>
