@@ -15,9 +15,9 @@ AsyncStorage.clear.apply
       return(
         <View style= {{flex:1, backgroundColor: '#2F4F4F'}}>
           <Image source= {require('../../Imagens/arvoresdefundo.png')} style={{right: 110, marginTop: -40}} />
-          <Image source= {require('../../Imagens/logoarvore.png')} style={{left: 97, marginTop: -60}} />
-          <Text style={{fontSize: 45, left:86, color: '#FFF' }}>Linked Park</Text>
-          <Text style={{fontSize: 20, left:105, color: '#FFF'}}>O lazer ligado a você</Text>
+          <Image source= {require('../../Imagens/logoarvore.png')} style={{left: 120, marginTop: -35}} />
+          <Text style={{fontSize: 45, left:110, color: '#FFF' }}>Linked Park</Text>
+          <Text style={{fontSize: 20, left:127, color: '#FFF'}}>O lazer ligado a você</Text>
           <TouchableOpacity style={styles.Botao}  onPress={ () => navigation.navigate('Login') }>
             <Text style={{color: '#FFF'}}>Fazer login</Text>
           </TouchableOpacity>
