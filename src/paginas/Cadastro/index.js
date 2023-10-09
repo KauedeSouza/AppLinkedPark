@@ -55,7 +55,7 @@ export default function Cadastro(){
 
             <Text style={styles.Textocadas}>Vamos realizar seu cadastro, precisamos apenas de algumas informações:</Text>
 
-            <Text style={{fontSize: 20, left: 30, marginTop: 50}}>E-mail:</Text>
+            <Text style={{fontSize: 20, left: 20, marginTop: 50}}>E-mail:</Text>
 
               <Controller
                   control={control}
@@ -77,7 +77,7 @@ export default function Cadastro(){
               />
               {errors.email && <Text style={styles.Error}>{errors.email?.message}</Text>}
 
-              <Text style={{fontSize: 20, left: 30, marginTop: 30}}>Senha:</Text>
+              <Text style={{fontSize: 20, left: 20, marginTop: 30}}>Senha:</Text>
 
               <Controller
                   control={control}
