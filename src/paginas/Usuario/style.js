@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     Imagem: {
-        width: 105,
-        height: 105,
+        width: 90,
+        height: 90,
         left: 15,
         borderRadius: 55,
-        marginTop: 12
+        marginTop: 15
     }
 
   })

@@ -31,29 +31,27 @@ if(route.params == null ){
           <View style={styles.view}>
                 <TouchableOpacity onPress={ () => navigation.navigate('Usuario')}><Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} /></TouchableOpacity>
                 <TextInput style={styles.Input} placeholder= 'Pesquisar'/>
-                <TouchableOpacity><Icons name="chat" size={40} color='#17A558'/></TouchableOpacity>
             </View>
 
             <BannerParks></BannerParks>  
 
             <View style={styles.views}>
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/></TouchableOpacity>
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 25, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}}><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/></TouchableOpacity>
             </View>
 
             <View style={styles.vieww}>
-              <Text style={{marginLeft: 47}}>Parques</Text>
+              <Text style={{marginLeft: 22}}>Parques</Text>
               <Text style={{marginLeft: 74}}>Lazer</Text>
               <Text style={{marginLeft: 67}}>Calendário</Text>
             </View>
 
-            <Text style={{fontSize:30, marginTop: 20, marginLeft: 75}}>Parque Recomendado</Text>
-
-            <BannerParks></BannerParks>  
+            <Text style={{fontSize:30, marginTop: 30, marginLeft: 25}}>Parque Recomendado</Text>
+  
 
             <TouchableOpacity style={{height: 160}} >
-            <View style={{backgroundColor: '#B1D3C1', marginTop: 15, borderRadius: 35, width: 355, height: 150, marginLeft: 20}}>
+            <View style={{backgroundColor: '#B1D3C1', marginTop: 25, borderRadius: 35, width: 315, height: 150, marginLeft: 20}}>
                         <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
                         <Text style={{
                               marginLeft: 140,

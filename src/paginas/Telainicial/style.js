@@ -2,21 +2,21 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     Imagem: {
-        width: 45,
-        height: 45,
+        width: 55,
+        height: 55,
         left: 20,
-        borderRadius: 25
+        borderRadius: 30
     },
 
     Input: {
       borderWidth: 11,
       borderColor: '#B1D3C1',
-      marginLeft: 50,
+      marginLeft: 40,
       marginRight: 30,
-      borderRadius: 15,
+      borderRadius: 27,
       backgroundColor: '#B1D3C1',
-      width: 230,
-      padding: 2
+      width: 250,
+      padding: 3
       },
 
       view: {
