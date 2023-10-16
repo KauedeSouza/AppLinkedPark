@@ -8,6 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 import styles from './style';
 import Routes from '../../componentes/menu/routes';
 import BannerParks from '../../componentes/bannerParks';
+import Carrosel from '../../componentes/carrosel'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -32,13 +33,13 @@ if(route.params == null ){
                 <TouchableOpacity onPress={ () => navigation.navigate('Usuario')}><Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} /></TouchableOpacity>
                 <TextInput style={styles.Input} placeholder= 'Pesquisar'/>
             </View>
-
-            <BannerParks></BannerParks>  
+            <Carrosel></Carrosel>
+  
 
             <View style={styles.views}>
             <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 25, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
             <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}}><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/></TouchableOpacity>
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaCalendario') }><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/></TouchableOpacity>
             </View>
 
             <View style={styles.vieww}>

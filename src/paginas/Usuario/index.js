@@ -62,8 +62,7 @@ export default function Usuario(){
               marginLeft: 13,
             }}
           >
-            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Fale conosco</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Quem é UP?</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:30, marginLeft:30, fontSize:20}}>Fale conosco</Text></TouchableOpacity>
             <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sobre App</Text></TouchableOpacity>
             <TouchableOpacity onPress={ () => navigation.navigate('iniciar')}><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sair</Text></TouchableOpacity>
           </View>

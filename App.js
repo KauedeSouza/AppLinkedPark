@@ -10,6 +10,7 @@ import TelaInicial from './src/paginas/Telainicial';
 import TelaLazer from './src/paginas/TelaLazer';
 import TelaDetalhes from './src/paginas/TelaDetalhes';
 import Usuario from './src/paginas/Usuario'
+import TelaCalendario from './src/paginas/TelaCalendario';
 
 const Stack = createNativeStackNavigator()
 
@@ -70,6 +71,13 @@ export default function App(){
           <Stack.Screen
            name='Usuario'
            component={Usuario}
+           options={{
+            headerShown: false
+          }}
+          />
+          <Stack.Screen
+           name='TelaCalendario'
+           component={TelaCalendario}
            options={{
             headerShown: false
           }}
