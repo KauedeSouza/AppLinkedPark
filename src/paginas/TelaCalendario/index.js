@@ -18,6 +18,10 @@ export default function TelaCalendario(){
 
             <Calendario></Calendario>
 
+
+            <Text style={{fontSize:30, marginTop: 30, marginLeft: 132}}>Eventos</Text>
+
+
                 </ScrollView>
                  <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
 

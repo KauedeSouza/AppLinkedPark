@@ -39,7 +39,7 @@ export default function Routes(){
                 </TouchableOpacity>
 
 
-                <TouchableOpacity onPress={ () => navigation.navigate('TelaInicial') }>
+                <TouchableOpacity>
                     <View 
                         style={{ 
                                 marginTop: 15,
@@ -85,7 +85,7 @@ export default function Routes(){
                 </TouchableOpacity>
 
 
-                <TouchableOpacity onPress={ () => navigation.navigate('TelaInicial') }>
+                <TouchableOpacity onPress={ () => navigation.navigate('Favoritos') }>
                     <View 
                         style={{ 
                                 marginTop: 15,
