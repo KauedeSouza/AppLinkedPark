@@ -69,7 +69,7 @@ export default function Login(){
 
             <Text style={styles.Textocadas}>Entre com seus dados corretamente para acessar o sistema:</Text>
 
-            <Text style={{fontSize: 20, left: 30, marginTop: 50}}>E-mail:</Text>
+            <Text style={{fontSize: 20, left: 20, marginTop: 50}}>E-mail:</Text>
 
             <Controller
                   control={control}
@@ -91,7 +91,7 @@ export default function Login(){
               />
               {errors.email && <Text style={styles.Error}>{errors.email?.message}</Text>}
 
-              <Text style={{fontSize: 20, left: 30, marginTop: 30}}>Senha:</Text>
+              <Text style={{fontSize: 20, left: 20, marginTop: 30}}>Senha:</Text>
 
               <Controller
                   control={control}
@@ -126,14 +126,7 @@ export default function Login(){
           <TouchableOpacity style={styles.botaofazerlogin} onPress={ () => navigation.navigate('Cadastro')} >
             <Text style={{color: '#000', fontSize: 15}}>Não tem conta?<Text style={{color: '#17A558' }}> - Cadastre-se</Text></Text>
           </TouchableOpacity>
-
-          <TouchableOpacity>
-                <Text style={{color: '#000',fontSize: 35, left: 140, marginTop: 60}}><Icon name="google" size={40} color='#17A558'/></Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-                <Text style={{color: '#000',fontSize: 35, left: 210, marginTop: -33}}><Icon name="facebook-square" size={40} color='#17A558'/></Text>
-            </TouchableOpacity>
+          
         </View>
 
       );

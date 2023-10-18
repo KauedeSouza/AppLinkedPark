@@ -26,53 +26,76 @@ export default function Routes(){
                 <TouchableOpacity onPress={ () => navigation.navigate('TelaInicial') }>
                     <View 
                     style={{ 
-                            marginTop: 15,
-                            marginLeft: 85 , 
-                            width: 120,
-                            height: 35,
-                            }}>
-                        <Icons name="home" size={27} color='#526856'/>
-
-                        <Text style={{marginTop: -19, marginLeft: 35, fontSize: 16, color: '#526856'}}>Início</Text>
+                        marginTop: 15,
+                        marginLeft: 15 , 
+                        }}>
+                    <Icons 
+                        name="home"
+                        size={30}
+                        color='#526856'
+                        />
 
                             </View>
                            </TouchableOpacity>
 
-                <TouchableOpacity 
-                style={{
-                    marginTop: -35,
-                    marginLeft: -1,
-                    backgroundColor: '#17A558',
-                    borderRadius: 30,
-                    width: 100,
-                    height: 55,
-                    }}>
-                    <Icon name="search1"
-                        size={27}
+                           <TouchableOpacity onPress={ () => navigation.navigate('TelaInicial') }>
+                    <View 
+                        style={{ 
+                                marginTop: 15,
+                                marginLeft: 45 , 
+                                }}>
+                            <Icons 
+                                name="chat"
+                                size={30}
+                                color='#526856'
+                                />
+                    </View>
+                </TouchableOpacity>
+                           
+
+                <TouchableOpacity
+                    style={{
+                         marginLeft: 20,
+                        backgroundColor: '#17A558',
+                         borderRadius: 45,
+                        width: 70,
+                         height: 65,
+                         marginTop: -33
+                         }}>
+                        <Icon name="search1"
+                        size={30}
                         color='#fff' 
                         style={{
-                            marginLeft: 33,
-                            marginTop: 10
-                        }}/>
+                             marginLeft: 20,
+                            marginTop: 17
+                         }}/>
+                 </TouchableOpacity>
 
-                        <Text style={{marginTop: 20, marginLeft: 20, fontSize: 16, color: '#526856'}}>Pesquisar</Text>
-
-                            </TouchableOpacity>
-
-                <TouchableOpacity>
+                 <TouchableOpacity>
                     <Iconsss name="bell"
-                        size={27}
-                        color='#526856' 
-                        style={{
-                            marginTop: 15,
-                            marginLeft: 25, 
-                            width: 120,
-                            height: 35,
-                            }}/>
+                     size={30}
+                     color='#526856' 
+                     style={{
+                         marginTop: 15,
+                         marginLeft: 13, 
+                         width: 120,
+                         height: 35,
+                        }}/>
+                        </TouchableOpacity>
 
-                        <Text style={{marginTop: -25, marginLeft: 60, marginRight:67, fontSize: 16, color: '#526856'}}>Notificações</Text>
-
-                           </TouchableOpacity>
+                        <TouchableOpacity onPress={ () => navigation.navigate('Favoritos') }>
+                    <View 
+                        style={{ 
+                                marginTop: 15,
+                                marginLeft: -55 , 
+                                }}>
+                            <Icons 
+                                name="heart"
+                                size={30}
+                                color='#526856'
+                                />
+                    </View>
+                </TouchableOpacity>
             </View>    
         </View>
       );

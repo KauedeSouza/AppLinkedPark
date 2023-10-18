@@ -5,9 +5,9 @@ import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
+import Carrosel from '../../componentes/carrosel';
 import styles from './style';
 import Routes from '../../componentes/menu/routes';
-import BannerParks from '../../componentes/bannerParks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -34,26 +34,25 @@ if(route.params == null ){
                 <TouchableOpacity><Icons name="chat" size={40} color='#17A558'/></TouchableOpacity>
             </View>
 
-            <BannerParks></BannerParks>  
+            <Carrosel></Carrosel> 
 
             <View style={styles.views}>
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
-            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17}}><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/></TouchableOpacity>
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 25, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaCalendario') }><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 10, marginTop: 7}}/></TouchableOpacity>
             </View>
 
             <View style={styles.vieww}>
-              <Text style={{marginLeft: 47}}>Parques</Text>
+              <Text style={{marginLeft: 22}}>Parques</Text>
               <Text style={{marginLeft: 74}}>Lazer</Text>
               <Text style={{marginLeft: 67}}>Calendário</Text>
             </View>
 
-            <Text style={{fontSize:30, marginTop: 20, marginLeft: 75}}>Parque Recomendado</Text>
-
-            <BannerParks></BannerParks>  
+            <Text style={{fontSize:30, marginTop: 30, marginLeft: 55}}>Parque Recomendado</Text>
+ 
 
             <TouchableOpacity style={{height: 160}} >
-            <View style={{backgroundColor: '#B1D3C1', marginTop: 15, borderRadius: 35, width: 355, height: 150, marginLeft: 20}}>
+            <View style={{backgroundColor: '#B1D3C1', marginTop: 25, borderRadius: 35, width: 315, height: 150, marginLeft: 20}}>
                         <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
                         <Text style={{
                               marginLeft: 140,
