@@ -3,7 +3,6 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Routes from '../../componentes/menu/routes';
-import Favoritar from '../../componentes/favoritar';
 import {useNavigation} from '@react-navigation/native';
 import styles from './style'
 

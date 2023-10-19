@@ -12,6 +12,7 @@ import TelaDetalhes from './src/paginas/TelaDetalhes';
 import Usuario from './src/paginas/Usuario';
 import TelaCalendario from './src/paginas/TelaCalendario';
 import Favoritos from './src/paginas/Favoritos';
+import TelaSobreoApp from './src/paginas/TelaSobreoApp';
 
 const Stack = createNativeStackNavigator()
 
@@ -86,6 +87,13 @@ export default function App(){
           <Stack.Screen
            name='Favoritos'
            component={Favoritos}
+           options={{
+            headerShown: false
+          }}
+          />
+          <Stack.Screen
+           name='TelaSobreoApp'
+           component={TelaSobreoApp}
            options={{
             headerShown: false
           }}

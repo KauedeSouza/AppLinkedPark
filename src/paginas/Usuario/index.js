@@ -62,7 +62,7 @@ export default function Usuario(){
             }}
           >
 
-            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sobre App</Text></TouchableOpacity>
+            <TouchableOpacity onPress={ () => navigation.navigate('TelaSobreoApp')}><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sobre App</Text></TouchableOpacity>
             <TouchableOpacity onPress={ () => navigation.navigate('iniciar')}><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sair</Text></TouchableOpacity>
           </View>
 
