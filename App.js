@@ -13,6 +13,8 @@ import Usuario from './src/paginas/Usuario';
 import TelaCalendario from './src/paginas/TelaCalendario';
 import Favoritos from './src/paginas/Favoritos';
 import TelaSobreoApp from './src/paginas/TelaSobreoApp';
+import TelaContatos from './src/paginas/TelaContatos';
+import TelaChat from './src/paginas/TelaChat';
 
 const Stack = createNativeStackNavigator()
 
@@ -94,6 +96,20 @@ export default function App(){
           <Stack.Screen
            name='TelaSobreoApp'
            component={TelaSobreoApp}
+           options={{
+            headerShown: false
+          }}
+          />
+          <Stack.Screen
+           name='TelaContatos'
+           component={TelaContatos}
+           options={{
+            headerShown: false
+          }}
+          />
+          <Stack.Screen
+           name='TelaChat'
+           component={TelaChat}
            options={{
             headerShown: false
           }}
