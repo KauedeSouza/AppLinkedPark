@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         textShadowColor: 'black',
         textShadowOffset: {width: 1, height: 1},
         textShadowRadius: 3,
-        marginRight:5
+        marginRight:7
       },
       myEmptyStarStyle: {
         color: 'white',

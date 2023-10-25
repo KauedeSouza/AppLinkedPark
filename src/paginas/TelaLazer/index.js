@@ -65,16 +65,16 @@ export default function TelaLazer(){
               backgroundColor: '#B1D3C1',
               marginTop: 10,
               borderRadius: 35,
-              width: 355,
+              width: 340,
               height: 150,
-              marginLeft: 20,
+              marginLeft: 9,
             }}
           >
              <Image  source={{uri: item.imagem}} style={styles.Imagens} />
             <Text
               style={{
                 marginLeft: 140,
-                marginTop: -115,
+                marginTop: -125,
                 fontSize: 18,
               }}
             >
@@ -84,7 +84,7 @@ export default function TelaLazer(){
             <Text
               style={{
                 marginLeft: 140,
-                marginTop: 15,
+                marginTop: 3,
                 fontSize: 12,
               }}
             >
@@ -106,6 +106,7 @@ export default function TelaLazer(){
 
 
                 </ScrollView>
+                <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
  
             
         <Routes></Routes>

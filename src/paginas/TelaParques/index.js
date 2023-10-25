@@ -64,9 +64,9 @@ export default function TelaParques(){
               backgroundColor: '#B1D3C1',
               marginTop: 15,
               borderRadius: 35,
-              width: 355,
+              width: 340,
               height: 150,
-              marginLeft: 20,
+              marginLeft: 9,
             }}
           >
              <Image  source={{uri: item.imagem}} style={styles.Imagens} />
@@ -91,15 +91,6 @@ export default function TelaParques(){
             </Text>
           </View>
 
-          <Icon
-            name="rightcircle"
-            size={30}
-            color='#17A558'
-            style={{
-              marginLeft: 360,
-              marginTop: -85,
-            }}
-          />
         </TouchableOpacity>
       ))}
 

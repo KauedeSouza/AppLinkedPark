@@ -32,8 +32,9 @@ export default function TelaDetalhes({ route }){
  
     return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
+          <ScrollView>
             <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate(redirect)} >
-                <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/> {route.params.nome}</Text>
+                <Text style={{color: '#000',fontSize: 25, left: 30, marginTop: 60}}><Icon name="leftcircle" size={37} color='#17A558'/> {route.params.nome}</Text>
             </TouchableOpacity>
 
             <View>
@@ -47,7 +48,7 @@ export default function TelaDetalhes({ route }){
                     }}
 
                     />
-                    <Text style={{fontSize: 25, marginLeft: 75}}>{route.params.nome}</Text>
+                    <Text style={{fontSize: 25, marginLeft: 20}}>{route.params.nome}</Text>
             </View>
                 
 
@@ -71,9 +72,9 @@ export default function TelaDetalhes({ route }){
               backgroundColor: '#B1D3C1',
               marginTop: 15,
               borderRadius: 35,
-              width: 375,
+              width: 335,
               height: 130,
-              marginLeft: 17,
+              marginLeft: 13,
             }}
           >
 
@@ -92,9 +93,9 @@ export default function TelaDetalhes({ route }){
               backgroundColor: '#B1D3C1',
               marginTop: 8,
               borderRadius: 35,
-              width: 375,
+              width: 335,
               height: 80,
-              marginLeft: 17,
+              marginLeft: 13,
             }}
           ><Text 
           style={{
@@ -104,16 +105,15 @@ export default function TelaDetalhes({ route }){
           }}
           >Digite sua opnião:</Text>
                     <TextInput style={{marginLeft: 20, marginTop: 7, width: 90}} placeholder= 'Escreva aqui' onChangeText={handleTextInputChange} alue={text}/>
-          <TouchableOpacity onPress={handleButtonPress}><Icon name="rightcircle"size={30}color='#17A558' style={{marginLeft: 330,marginTop: -35}}/></TouchableOpacity>
+          <TouchableOpacity onPress={handleButtonPress}><Icon name="rightcircle"size={30}color='#17A558' style={{marginLeft: 290,marginTop: -40}}/></TouchableOpacity>
 
           <View
             style={{
               backgroundColor: '#B1D3C1',
               marginTop: 23,
               borderRadius: 35,
-              width: 375,
+              width: 335,
               height: 230,
-              marginLeft: -1,
             }}
           >
             <Text 
@@ -122,10 +122,13 @@ export default function TelaDetalhes({ route }){
             marginTop: 15,
             fontSize: 25,
           }}
-          >                       Avaliações:</Text>
+          >Avaliações</Text>
           </View>
 
-          </View>
+        </View>
+
+          </ScrollView>
+                 <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
 
           <Routes></Routes>
 

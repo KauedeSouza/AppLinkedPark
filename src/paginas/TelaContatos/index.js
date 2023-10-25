@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import Routes from '../../componentes/menu/routes';
 
 const contacts = [
   { id: 1, name: 'Parque 1' },
@@ -27,6 +28,8 @@ export default function TelaContatos(){
           </TouchableOpacity>
         )}
       />
+
+          <Routes></Routes>
     </View>
   );
 };
