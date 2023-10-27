@@ -13,7 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function TelaInicial({ route }){ 
   const navigation = useNavigation();
-  /*
+
 if(route.params == null ){
   Alert.alert("Atenção!","você está entrando em um modo com limitações para usar o app com todos os recursos faça o login")
 }else if(AsyncStorage.getItem("logado")== "logado"){
@@ -22,7 +22,7 @@ if(route.params == null ){
   AsyncStorage.setItem("logado","logado")
 
 }
-*/
+
 
 
       return(
@@ -71,13 +71,6 @@ if(route.params == null ){
 
                         </View>
 
-                        <Icon name="rightcircle"
-                        size={30}
-                        color='#17A558' 
-                        style={{
-                            marginLeft: 360,
-                            marginTop: -85
-                        }}/>
                         
             </TouchableOpacity>
             

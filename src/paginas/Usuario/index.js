@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {View, Image, TouchableOpacity, Text, TextInput, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styles from './style';
@@ -10,7 +10,25 @@ import Stars from 'react-native-stars';
 
 export default function Usuario(){
     const navigation = useNavigation();
+    const [email, setEmail] = useState('');
 
+    useEffect(() => {
+      async function fetchUserData() {
+        try {
+          const storedEmail = await AsyncStorage.getItem('email');
+          if (storedEmail) {
+            setEmail(storedEmail);
+          } else {
+            // Trate o caso em que o email não está no AsyncStorage
+            console.warn('Email não encontrado no AsyncStorage.');
+          }
+        } catch (error) {
+          console.error('Erro ao obter dados do AsyncStorage:', error);
+        }
+      }
+  
+      fetchUserData();
+    }, []);
 
     return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
@@ -32,8 +50,7 @@ export default function Usuario(){
             
           >
             <Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} />
-            <Text style={{marginTop:-80, marginLeft:115, fontSize:30}}>Rafael Satírio</Text>
-            <Text style={{marginTop:5, marginLeft:115, fontSize:20}}>rafaelsatirio@gmail.com</Text>
+            <Text style={{marginTop:-65, marginLeft:115, fontSize:20}}>{email}</Text>
           </View>
 
           <View
@@ -47,7 +64,7 @@ export default function Usuario(){
             }}
           >
              <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Mudar foto</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Mudar conta</Text></TouchableOpacity>
+            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Alterar senha</Text></TouchableOpacity>
             <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Apagar conta</Text></TouchableOpacity>
           </View>
 

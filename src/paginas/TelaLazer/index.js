@@ -92,15 +92,7 @@ export default function TelaLazer(){
             </Text>
           </View>
 
-          <Icon
-            name="rightcircle"
-            size={30}
-            color='#17A558'
-            style={{
-              marginLeft: 360,
-              marginTop: -85,
-            }}
-          />
+        
         </TouchableOpacity>
       ))}
 
