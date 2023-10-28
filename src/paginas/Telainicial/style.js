@@ -15,8 +15,14 @@ const styles = StyleSheet.create({
       marginRight: 30,
       borderRadius: 27,
       backgroundColor: '#B1D3C1',
+<<<<<<< Updated upstream
       width: 250,
       padding: 3
+=======
+      width: 230,
+      padding: 2,
+      flex:1
+>>>>>>> Stashed changes
       },
 
       view: {
@@ -34,8 +40,13 @@ const styles = StyleSheet.create({
       views: {
         flexDirection: 'row', 
         paddingHorizontal: 1,
+<<<<<<< Updated upstream
         marginTop: -8,
         marginLeft: 13
+=======
+        flex:1,
+        marginRight: 60
+>>>>>>> Stashed changes
       },
       vieww: {
         flexDirection: 'row', 
@@ -45,9 +56,12 @@ const styles = StyleSheet.create({
       },
       Imagens: {
         width: 135,
-        height: 150,
-        left: 1,
-        borderRadius: 25
+        height: 163,
+        borderRadius: 25,
+        marginTop: -20,
+        marginLeft: -19,
+        flex:1
+
     }
   })
 

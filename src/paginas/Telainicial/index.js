@@ -37,6 +37,7 @@ if(route.params == null ){
             <Carrosel></Carrosel> 
 
             <View style={styles.views}>
+<<<<<<< Updated upstream
             <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 25, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/></TouchableOpacity> 
             <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/></TouchableOpacity> 
             <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 30}} onPress={ () => navigation.navigate('TelaCalendario') }><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 10, marginTop: 7}}/></TouchableOpacity>
@@ -53,29 +54,48 @@ if(route.params == null ){
 
             <TouchableOpacity style={{height: 160}} >
             <View style={{backgroundColor: '#B1D3C1', marginTop: 25, borderRadius: 35, width: 315, height: 150, marginLeft: 20}}>
+=======
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17, flex:1}} onPress={ () => navigation.navigate('TelaParques') }><Iconsss name="tree-outline" size={40} color='#526856' style={{marginLeft: 10, marginTop: 5}}/><Text style={{marginTop: 25, marginLeft: 5, flex: 1}}>Parques</Text></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17, flex:1}} onPress={ () => navigation.navigate('TelaLazer') }><Iconss name="bicycle" size={40} color='#526856' style={{marginLeft: 4, marginTop: 6}}/><Text style={{marginTop: 25, marginLeft: 15, flex: 1}}>Lazer</Text></TouchableOpacity> 
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', width: 60, height: 55, marginLeft: 50, marginTop: 25, borderRadius: 17, flex:1}}><Iconsss name="calendar-month" size={40} color='#526856' style={{marginLeft: 11, marginTop: 7}}/><Text style={{marginTop: 25, marginLeft: 8, flex: 1}}>Calendário</Text></TouchableOpacity>
+
+            </View>
+
+            
+
+            <Text style={{fontSize:30, marginTop: 20, marginLeft: 25}}>Parque Recomendado</Text>
+
+            <BannerParks></BannerParks>  
+
+            <TouchableOpacity style={{backgroundColor: '#B1D3C1', marginTop: 15, borderRadius: 35, marginLeft: 20, marginRight: 20, padding:20, flex:1}} >
+            
+>>>>>>> Stashed changes
                         <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
                         <Text style={{
-                              marginLeft: 140,
-                              marginTop: -140,
+                              marginLeft: 130,
+                              marginTop: -100,
                               fontSize: 18
                             }}>Parque da Consciência Negra
                         </Text>
 
                         <Text style={{
-                          marginLeft: 140,
+                          marginLeft: 130,
                           marginTop: 15,
                             fontSize: 12
                             }}>Localizado na Cidade Tiradentes,
                           Zona Leste da capital paulista e foi criado para preservar as nascentes do Córrego Itaquera.
                         </Text>
+<<<<<<< Updated upstream
 
                         </View>
 
+=======
+>>>>>>> Stashed changes
                         
             </TouchableOpacity>
             
             <TouchableOpacity style={{color: '#B1D3C1'}}></TouchableOpacity>
-            <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
+            <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
         
 
             </ScrollView>
