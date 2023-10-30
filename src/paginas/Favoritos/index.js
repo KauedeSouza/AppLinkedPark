@@ -18,6 +18,17 @@ export default function Favoritos(){
             </TouchableOpacity>
 
 
+            <View
+            style={{
+              backgroundColor: '#B1D3C1',
+              marginTop: 10,
+              borderRadius: 35,
+              width: 340,
+              height: 150,
+              marginLeft: 9,
+            }}
+          ></View>
+
 
             <Routes></Routes>
         </View>
