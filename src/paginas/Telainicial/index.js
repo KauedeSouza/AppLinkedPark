@@ -1,7 +1,5 @@
 import React from 'react';
 import {View, Image, TextInput, TouchableOpacity, Text, Alert, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
-import Icons from 'react-native-vector-icons/Entypo';
 import Iconss from 'react-native-vector-icons/FontAwesome';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
@@ -9,6 +7,7 @@ import Carrosel from '../../componentes/carrosel';
 import styles from './style';
 import Routes from '../../componentes/menu/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Pesquisa from '../../componentes/pesquisa'
 
 
 export default function TelaInicial({ route }){ 
@@ -31,6 +30,7 @@ if(route.params == null ){
           <View style={styles.view}>
                 <TouchableOpacity onPress={ () => navigation.navigate('Usuario')}><Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} /></TouchableOpacity>
                 <TextInput style={styles.Input} placeholder= 'Pesquisar'/>
+                
             </View>
 
             <Carrosel></Carrosel> 
@@ -53,22 +53,23 @@ if(route.params == null ){
             <TouchableOpacity style={{height: 160}} >
             <View style={{backgroundColor: '#B1D3C1', marginTop: 25, borderRadius: 35, width: 315, height: 150, marginLeft: 20}}>
                         <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
+
                         <Text style={{
                               marginLeft: 130,
-                              marginTop: -100,
+                              marginTop: -120,
                               fontSize: 18
                             }}>Parque da Consciência Negra
                         </Text>
 
                         <Text style={{
                           marginLeft: 130,
-                          marginTop: 15,
+                          marginTop: 5,
                             fontSize: 12
                             }}>Localizado na Cidade Tiradentes,
                           Zona Leste da capital paulista e foi criado para preservar as nascentes do Córrego Itaquera.
                         </Text>
 
-                        </View>
+              </View>
 
                         
             </TouchableOpacity>

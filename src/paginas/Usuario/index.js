@@ -55,8 +55,11 @@ export default function Usuario(){
             
           >
             <Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} />
+
             <Text style={{marginTop:-65, marginLeft:115, fontSize:20}}>{email}</Text>
           </View>
+
+
 
           <View
             style={{
@@ -65,14 +68,14 @@ export default function Usuario(){
 
               borderRadius: 20,
               width: 330,
-              height: 145,
+              height: 125,
               marginLeft: 13,
             }}
           >
           
-            <TouchableOpacity><Text style={{marginTop:10, marginLeft:30, fontSize:20}}>Mudar foto</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Alterar senha</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Apagar conta</Text></TouchableOpacity>
+
+            <TouchableOpacity><Text style={{marginTop:25, marginLeft:30, fontSize:20}}>Alterar senha</Text></TouchableOpacity>
+            <TouchableOpacity onPress={ () => navigation.navigate('Login')}><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Alterar conta</Text></TouchableOpacity>
           </View>
           <View
             style={{
