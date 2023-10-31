@@ -15,14 +15,8 @@ const styles = StyleSheet.create({
       marginRight: 30,
       borderRadius: 27,
       backgroundColor: '#B1D3C1',
-<<<<<<< Updated upstream
       width: 250,
       padding: 3
-=======
-      width: 230,
-      padding: 2,
-      flex:1
->>>>>>> Stashed changes
       },
 
       view: {
@@ -40,13 +34,8 @@ const styles = StyleSheet.create({
       views: {
         flexDirection: 'row', 
         paddingHorizontal: 1,
-<<<<<<< Updated upstream
         marginTop: -8,
         marginLeft: 13
-=======
-        flex:1,
-        marginRight: 60
->>>>>>> Stashed changes
       },
       vieww: {
         flexDirection: 'row', 
