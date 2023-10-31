@@ -45,7 +45,7 @@ export default function Login(){
 .then(data => {
   if (data) {
     console.log(data)
-  AsyncStorage.setItem('email',data.select.idUsuario);
+  AsyncStorage.setItem('id',data.select.idUsuario);
   AsyncStorage.setItem('email',data.select.email);
   AsyncStorage.setItem('senha',data.select.senha);
   AsyncStorage.setItem('token',data.token);

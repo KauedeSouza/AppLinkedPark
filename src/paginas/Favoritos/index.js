@@ -15,6 +15,8 @@ export default function TelaLazer(){
         try {
           // Obtém o token de AsyncStorage
           const token = await AsyncStorage.getItem("token");
+          const idUsuario = await AsyncStorage.getItem("id");
+
             
         
           if (token) {
@@ -25,7 +27,7 @@ export default function TelaLazer(){
             };
       
             // Faça a solicitação usando o cabeçalho personalizado
-            const response = await fetch('https://tcc-production-e100.up.railway.app/api/favorito/', {
+            const response = await fetch('https://tcc-production-e100.up.railway.app/api/favorito/'+idUsuario, {
               method: 'GET', // ou outro método HTTP
               headers: headers
             });
@@ -51,7 +53,7 @@ export default function TelaLazer(){
       <View style= {{flex:1, backgroundColor: '#FFF'}}>
       <ScrollView>
                 <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaInicial')} >
-                <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Lazer</Text>
+                <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Favoritos</Text>
             </TouchableOpacity>
 
             {dados.map((item, index) => (

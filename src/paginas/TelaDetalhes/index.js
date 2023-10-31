@@ -7,6 +7,8 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import Stars from 'react-native-stars';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 
@@ -37,6 +39,51 @@ export default function TelaDetalhes({ route }){
       redirect = "TelaParques"
 
     }
+
+    async function favoritos(data) {
+      console.log("oi")
+        try {
+          // Obtém o token de AsyncStorage
+          const token = await AsyncStorage.getItem("token");
+          const idUsuario = await AsyncStorage.getItem("id");
+
+
+            
+        
+          if (token) {
+            const headers = {
+              'Content-type': 'application/json; charset=UTF-8',
+              'Authorization': `Bearer ${token}`
+            };
+            const dados = {
+              "usuario": {
+              "idUsuario": idUsuario,
+              "idLazer": data.idLazer
+              }
+            }
+      
+            // Faça a solicitação usando o cabeçalho personalizado
+            const response = await fetch('https://tcc-production-e100.up.railway.app/api/favorito', {
+              method: 'POST', // ou outro método HTTP
+              headers: headers,
+              body: dados
+            });
+      
+            if (response.status === 200) {
+              const data = await response.json();
+              console.log("Dados da resposta:", data);
+              setDados(data)
+            } else {
+              console.error("Erro na solicitação:", response.status);
+            }
+          } else {
+            console.log("Token não encontrado em AsyncStorage.");
+          }
+        } catch (error) {
+          console.error("Erro ao fazer a solicitação:", error);
+        }
+      }
+    
  
     return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
@@ -58,7 +105,6 @@ export default function TelaDetalhes({ route }){
                     />
                     <Text style={{fontSize: 25, marginLeft: 20}}>{route.params.nome}</Text>
             </View>
-                
 
 
                 <View style = {styles.container}>
@@ -71,6 +117,8 @@ export default function TelaDetalhes({ route }){
                     emptyStar={<Iconsss name={'star-outline'} style={[styles.myStarStyle, styles.myEmptyStarStyle]}/>}
                     halfStar={<Iconsss name={'star-half'} style={[styles.myStarStyle]}/>}
                 />
+
+                <TouchableOpacity onPress={ () => favoritos(route.params)}><Icon name="hearto" size={27} style={{marginTop: -26, left: 320}}/></TouchableOpacity>
                 </View>
 
                 
