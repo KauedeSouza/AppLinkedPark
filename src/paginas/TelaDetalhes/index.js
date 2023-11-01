@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {View, Image, TouchableOpacity, Text, TextInput, ScrollView} from 'react-native';
+import {View, Image, TouchableOpacity, Text, TextInput, ScrollView, Alert} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styles from './style';
 import Routes from '../../componentes/menu/routes';
@@ -55,25 +55,24 @@ export default function TelaDetalhes({ route }){
               'Content-type': 'application/json; charset=UTF-8',
               'Authorization': `Bearer ${token}`
             };
-            const dados = {
-              "usuario": {
-              "idUsuario": idUsuario,
-              "idLazer": data.idLazer
-              }
-            }
-      
-            // Faça a solicitação usando o cabeçalho personalizado
+              // Faça a solicitação usando o cabeçalho personalizado
             const response = await fetch('https://tcc-production-e100.up.railway.app/api/favorito', {
               method: 'POST', // ou outro método HTTP
               headers: headers,
-              body: dados
+              body: JSON.stringify({
+                "usuario": {
+                  "idUsuario": idUsuario,
+                  },
+                  "lazer":{
+                    "idLazer":data.idLazer
+                  }
+              })
             });
       
             if (response.status === 200) {
-              const data = await response.json();
-              console.log("Dados da resposta:", data);
-              setDados(data)
-            } else {
+              console.log("adicionado com sucesso")
+            } else if (response.status === 400){
+              Alert.alert("isso ja está na sua lista de favoritos")
               console.error("Erro na solicitação:", response.status);
             }
           } else {

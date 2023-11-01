@@ -58,7 +58,7 @@ export default function TelaLazer(){
 
             {dados.map((item, index) => (
         <TouchableOpacity
-          key={item.idLazer}
+          key={item.id}
           style={{ height: 160 }}
           onPress={ () => navigation.navigate('TelaDetalhes',item)}
         >
@@ -72,7 +72,7 @@ export default function TelaLazer(){
               marginLeft: 9,
             }}
           >
-             <Image  source={{uri: item.imagem}} style={styles.Imagens} />
+             <Image  source={{uri: item.lazer.imagem}} style={styles.Imagens} />
             <Text
               style={{
                 marginLeft: 140,
@@ -80,7 +80,7 @@ export default function TelaLazer(){
                 fontSize: 18,
               }}
             >
-              {item.nome}
+              {item.lazer.nome}
             </Text>
 
             <Text
@@ -90,7 +90,7 @@ export default function TelaLazer(){
                 fontSize: 12,
               }}
             >
-              {item.descricao}
+              {item.lazer.descricao}
             </Text>
           </View>
 
