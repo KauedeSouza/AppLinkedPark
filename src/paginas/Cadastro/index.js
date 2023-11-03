@@ -30,21 +30,41 @@ export default function Cadastro(){
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
-}).then(response => {
-    if(response.status == 400){
-      Alert.alert("Ops!","esse email a esta em uso")
-    }else if (response.status == 201){
-      Alert.alert("Sucesso!","cadastrado com sucesso")
-    }else{
-      Alert.alert("Ops!","Erro no servidor verifique o email e tente novamente!")
+})
 
-    }
-
-  }).catch(errors =>{
+.catch(errors =>{
   console.error("Erro durante a requisição:", errors);
   Alert.alert("Erro", "Ocorreu um erro durante a requisição");
 });
     }
+
+    const [cep, setCep] = useState('');
+
+  const handleCepChange = (text) => {
+    setCep(text.replace(/[^0-9]/g, '')); // Remove caracteres não numéricos
+  };
+
+  const handleSearchCep = async () => {
+    if (cep.length !== 8) {
+      Alert.alert('Erro', 'CEP inválido. Por favor, insira um CEP válido.');
+      return;
+    }
+
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = response.data;
+
+      if (data.erro) {
+        Alert.alert('Erro', 'CEP não encontrado. Por favor, insira um CEP válido.');
+      } else {
+        // Aqui você pode utilizar os dados do CEP, por exemplo, exibindo em um Alert
+        Alert.alert('CEP Encontrado', `Cidade: ${data.localidade}, Estado: ${data.uf}`);
+      }
+    } catch (error) {
+      console.error('Erro ao buscar CEP:', error);
+    }
+  };
+
 
 
       return(
@@ -54,6 +74,25 @@ export default function Cadastro(){
             </TouchableOpacity>
 
             <Text style={styles.Textocadas}>Vamos realizar seu cadastro, precisamos apenas de algumas informações:</Text>
+
+
+            <Text style={{fontSize: 20, left: 20, marginTop: 50}}>Nome Completo:</Text>
+
+                    <TextInput 
+                    style={[styles.Inputs]} 
+                    placeholder='  Digite seu Nome Completo'
+                  />
+
+            <Text style={{fontSize: 20, left: 20, marginTop: 30}}>CEP:</Text>
+
+              <Input
+                style={styles.Inputs}
+                placeholder="Digite seu CEP"
+                value={cep}
+                onChangeText={handleCepChange}
+                keyboardType="numeric"
+                maxLength={8}
+              />
 
             <Text style={{fontSize: 20, left: 20, marginTop: 50}}>E-mail:</Text>
 
@@ -98,10 +137,11 @@ export default function Cadastro(){
                   />
                 )}
               />
-              {errors.password && <Text style={styles.Error}>{errors.password?.message}</Text>}
 
 
-            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(handleSignIn)} >
+
+
+            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(handleSignIn, handleSearchCep)} >
             <Text style={{color: '#FFF'}}>Cadastrar</Text>
           </TouchableOpacity>
 
