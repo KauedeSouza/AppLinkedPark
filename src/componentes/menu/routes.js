@@ -61,7 +61,8 @@ export default function Routes(){
                         width: 70,
                          height: 65,
                          marginTop: -33
-                         }}>
+                         }}
+                         onPress={ ()=> navigation.navigate('Pesquisa')}>
                         <Icon name="search1"
                         size={30}
                         color='#fff' 

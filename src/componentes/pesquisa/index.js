@@ -1,84 +1,104 @@
 import React, { useState } from 'react';
-import { View, TextInput, FlatList, Text } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { View, Text, TextInput, TouchableOpacity, Image, FlatList } from 'react-native';
 
-const data = [
-  { id: '1', nome: '' },
-  { id: '2', nome: 'Item 2' },
-  { id: '3', nome: 'Item 3' },
-  { id: '4', nome: 'Another Item' },
-  // ... mais dados
-];
+const Pesquisa = ({ data, navigation }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
-const App = () => {
-  const [search, setSearch] = useState('');
-  const filteredData = data.filter(item =>
-    item.nome.toLowerCase().includes(search.toLowerCase())
-  );
+  const handleSearch = () => {
+    const filteredResults = data.filter(item =>
+      item.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.descricao.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(filteredResults);
+  };
 
   const [dados, setDados] = useState([]);
 
 
-    async function fazerSolicitacaoComToken() {
-      try {
-        // Obtém o token de AsyncStorage
-        const token = await AsyncStorage.getItem("token");
-    
-        if (token) {
-          // Construa o cabeçalho Authorization
-          const headers = {
-            'Content-type': 'application/json; charset=UTF-8',
-            'Authorization': `Bearer ${token}`
-          };
-    
-          // Faça a solicitação usando o cabeçalho personalizado
-          const response = await fetch('https://tcc-production-e100.up.railway.app/api/lazer/parque', {
-            method: 'GET', // ou outro método HTTP
-            headers: headers
-          });
-    
-          if (response.status === 200) {
-            const data = await response.json();
-            console.log("Dados da resposta:", data);
-            setDados(data);
-          } else {
-            console.error("Erro na solicitação:", response.status);
-          }
-        } else {
-          console.log("Token não encontrado em AsyncStorage.");
-        }
-      } catch (error) {
-        console.error("Erro ao fazer a solicitação:", error);
+  async function fazerSolicitacaoComToken() {
+    try {
+      // Obtém o token de AsyncStorage
+      const token = await AsyncStorage.getItem("token");
+  
+      if (token) {
+        // Construa o cabeçalho Authorization
+        const headers = {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Authorization': `Bearer ${token}`
+        };
       }
     }
+  };
 
   return (
     <View style={{ flex: 1, padding: 16 }}>
       <TextInput
+        placeholder="Digite para pesquisar"
+        value={searchTerm}
+        onChangeText={text => setSearchTerm(text)}
         style={{
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 1,
           marginBottom: 16,
-          paddingLeft: 8,
+          padding: 8,
+          borderWidth: 1,
+          borderRadius: 4,
         }}
-        placeholder="Pesquisar..."
-        onChangeText={text => setSearch(text)}
-        value={search}
       />
-      {dados.map((item, index) => (
-      <FlatList
-        data={filteredData}
-        key={item.idLazer}
-        renderItem={({ item }) => (
-          <View style={{ padding: 10 }}>
-            <Text>{item.nome}</Text>
-          </View>
-        )}
-      />
-      ))}
+      <TouchableOpacity
+        style={{ height: 160 }}
+        onPress={() => navigation.navigate('TelaDetalhes', item)}
+      >
+        <FlatList
+          data={searchResults}
+          keyExtractor={item => item.idLazer.toString()}
+          renderItem={({ item }) => (
+            <View
+              style={{
+                backgroundColor: '#B1D3C1',
+                marginTop: 15,
+                borderRadius: 35,
+                width: 340,
+                height: 150,
+                marginLeft: 9,
+              }}
+            >
+              <Image source={{ uri: item.imagem }} style={styles.Imagens} />
+              <Text
+                style={{
+                  marginLeft: 140,
+                  marginTop: -115,
+                  fontSize: 18,
+                }}
+              >
+                {item.nome}
+              </Text>
+
+              <Text
+                style={{
+                  marginLeft: 140,
+                  marginTop: 15,
+                  fontSize: 12,
+                }}
+              >
+                {item.descricao}
+              </Text>
+            </View>
+          )}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default App;
+const styles = {
+  Imagens: {
+    width: 50,
+    height: 50,
+    marginLeft: 20,
+    marginTop: 20,
+    borderRadius: 25,
+  },
+};
+
+export default Pesquisa;
+

@@ -15,6 +15,7 @@ import Favoritos from './src/paginas/Favoritos';
 import TelaSobreoApp from './src/paginas/TelaSobreoApp';
 import TelaContatos from './src/paginas/TelaContatos';
 import TelaChat from './src/paginas/TelaChat';
+import Pesquisa from './src/componentes/pesquisa'
 
 const Stack = createNativeStackNavigator()
 
@@ -110,6 +111,13 @@ export default function App(){
           <Stack.Screen
            name='TelaChat'
            component={TelaChat}
+           options={{
+            headerShown: false
+          }}
+          />
+          <Stack.Screen
+           name='Pesquisa'
+           component={Pesquisa}
            options={{
             headerShown: false
           }}

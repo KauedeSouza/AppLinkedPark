@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, TouchableOpacity, TextInput, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
@@ -8,12 +8,15 @@ import styles from './style';
 import * as yup from 'yup';
 
 
+
 const schema = yup.object({
   email: yup.string().email("Email inválido").required("Informe seu Email"),
   password: yup.string().min(8, "A senha deve ter pelo menos 8 dígitos").required("Informe sua senha")
 })
 
 export default function Cadastro(){ 
+  const [nome, setNome] = useState('');
+  const [mensagemErro, setMensagemErro] = useState('');
     const navigation = useNavigation();
     const {control, handleSubmit, formState: {errors} } = useForm({
       resolver: yupResolver(schema)
@@ -39,29 +42,39 @@ export default function Cadastro(){
     }
 
     const [cep, setCep] = useState('');
+    const [mensagemError, setMensagemError] = useState('');
+  const [endereco, setEndereco] = useState('');
 
-  const handleCepChange = (text) => {
-    setCep(text.replace(/[^0-9]/g, '')); // Remove caracteres não numéricos
+  const buscarCep = () => {
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.erro) {
+          setEndereco(`CEP: ${data.cep} - ${data.logradouro}, ${data.localidade} - ${data.uf}`);
+        } else {
+          setEndereco('CEP não encontrado');
+        }
+      })
+      .catch((error) => {
+        console.error('Erro ao buscar CEP:', error);
+      });
   };
 
-  const handleSearchCep = async () => {
-    if (cep.length !== 8) {
-      Alert.alert('Erro', 'CEP inválido. Por favor, insira um CEP válido.');
-      return;
-    }
+  const handleInputChange = (text) => {
+    // Remove caracteres não numéricos e define o estado do cep
+    const formattedCep = text.replace(/[^0-9]/g, '');
+    setCep(formattedCep);
+    setMensagemError('Por favor, digite apenas números.');
+  };
 
-    try {
-      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      const data = response.data;
-
-      if (data.erro) {
-        Alert.alert('Erro', 'CEP não encontrado. Por favor, insira um CEP válido.');
-      } else {
-        // Aqui você pode utilizar os dados do CEP, por exemplo, exibindo em um Alert
-        Alert.alert('CEP Encontrado', `Cidade: ${data.localidade}, Estado: ${data.uf}`);
-      }
-    } catch (error) {
-      console.error('Erro ao buscar CEP:', error);
+  const handleInputChangee = (text) => {
+    // Expressão regular para verificar se o texto contém apenas letras e espaços
+    const regex = /^[a-zA-Z\s]*$/;
+    if (regex.test(text)) {
+      setNome(text);
+      setMensagemErro('');
+    } else {
+      setMensagemErro('Por favor, digite apenas letras e espaços.');
     }
   };
 
@@ -79,20 +92,31 @@ export default function Cadastro(){
             <Text style={{fontSize: 20, left: 20, marginTop: 50}}>Nome Completo:</Text>
 
                     <TextInput 
-                    style={[styles.Inputs]} 
+                    style={[styles.Inputs, {
+                      borderWidth: mensagemErro && 2,
+                       borderColor: mensagemErro && '#ff375b'
+                    }]} 
                     placeholder='  Digite seu Nome Completo'
+                    onChangeText={handleInputChangee}
+                    value={nome}
                   />
+             {mensagemErro !== '' && <Text style={{ color: '#ff375b', marginTop: 10 }}>{mensagemErro}</Text>}
 
             <Text style={{fontSize: 20, left: 20, marginTop: 30}}>CEP:</Text>
 
-              <Input
-                style={styles.Inputs}
-                placeholder="Digite seu CEP"
-                value={cep}
-                onChangeText={handleCepChange}
+              <TextInput
+                style={[styles.Inputs, {
+                  borderWidth: mensagemError && 2,
+                  borderColor: mensagemError && '#ff375b'
+                }]}
+                placeholder="Digite o CEP"
                 keyboardType="numeric"
-                maxLength={8}
+                onChangeText={handleInputChange}
+                value={cep} 
               />
+              {mensagemError !== '' && <Text style={{ color: '#ff375b', marginTop: 10 }}>{mensagemError}</Text>}
+
+           {endereco !== '' && <Text style={{ marginTop: 20 }}>{endereco}</Text>}
 
             <Text style={{fontSize: 20, left: 20, marginTop: 50}}>E-mail:</Text>
 
@@ -137,11 +161,9 @@ export default function Cadastro(){
                   />
                 )}
               />
+              {errors.password && <Text style={styles.Error}>{errors.password?.message}</Text>}
 
-
-
-
-            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(handleSignIn, handleSearchCep)} >
+            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(buscarCep)} >
             <Text style={{color: '#FFF'}}>Cadastrar</Text>
           </TouchableOpacity>
 
