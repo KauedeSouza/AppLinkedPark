@@ -88,21 +88,21 @@ export default function TelaDetalhes({ route }){
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
           <ScrollView>
             <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate(redirect)} >
-                <Text style={{color: '#000',fontSize: 25, left: 30, marginTop: 60}}><Icon name="leftcircle" size={37} color='#17A558'/> {route.params.nome}</Text>
+                <Text style={{color: '#000',fontSize: 25, left: 5, marginTop: 60}}><Icon name="leftcircle" size={37} color='#17A558'/> {route.params.nome}</Text>
             </TouchableOpacity>
 
             <View>
                 <Image source={{uri: route.params.imagem}}
                     style={{
-                    width: 386,
+                    width: 370,
                     height: 170,
                     marginTop: 9,
-                    marginLeft: 13,
+                    marginLeft: 2,
                     borderRadius: 7
                     }}
 
                     />
-                    <Text style={{fontSize: 25, marginLeft: 20}}>{route.params.nome}</Text>
+                   
             </View>
 
 
@@ -129,7 +129,7 @@ export default function TelaDetalhes({ route }){
               borderRadius: 35,
               width: 335,
               height: 130,
-              marginLeft: 11,
+              marginLeft: 19,
             }}
           >
 
@@ -150,7 +150,7 @@ export default function TelaDetalhes({ route }){
               borderRadius: 35,
               width: 335,
               height: 80,
-              marginLeft: 11,
+              marginLeft: 19,
             }}
           ><Text 
           style={{
@@ -169,13 +169,13 @@ export default function TelaDetalhes({ route }){
               borderRadius: 35,
               width: 335,
               height: 230,
-              marginLeft: 11
+              marginLeft: 19
             }}
           >
             <Text 
           style={{
             marginLeft: 120,
-            marginTop: 15,
+            marginTop: 22,
             fontSize: 25,
           }}
           >Avaliações</Text>

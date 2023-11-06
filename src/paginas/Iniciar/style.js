@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#17A558',
       width: 250,
       height: 50,
-      left: 50,
+      left: 60,
       borderRadius: 50
     },
     Segundobotao:{
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#B1D3C1',
       width: 250,
       height: 50,
-      left: 50,
+      left: 60,
       borderRadius: 50
     },
     botaopular:{
@@ -27,8 +27,16 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       width: 250,
       height: 50,
-      left: 50,
+      left: 60,
       borderRadius: 50,
+    },
+    image: {
+      right: 110,
+      marginTop: -40
+    },
+    image2: {
+      left: 97,
+      marginTop: -60
     }
   })
 

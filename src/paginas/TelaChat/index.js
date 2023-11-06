@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
       paddingVertical: 10, // preenchimento vertical
       paddingHorizontal: 20, // preenchimento horizontal
       height: 40,
-      width: 75
+      width: 80
     },
 });
 

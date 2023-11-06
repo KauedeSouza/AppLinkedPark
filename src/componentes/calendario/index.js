@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#B1D3C1',
     borderRadius:30,
     width:320,
-    marginLeft:19,
+    marginLeft:25,
     marginTop:25
   },
   diasDaSemana: {

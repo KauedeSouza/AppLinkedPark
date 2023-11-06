@@ -66,7 +66,7 @@ export default function Login(){
       return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
           <ScrollView>
-            <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('iniciar')} >
+            <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('Iniciar')} >
                 <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Login</Text>
             </TouchableOpacity>
 

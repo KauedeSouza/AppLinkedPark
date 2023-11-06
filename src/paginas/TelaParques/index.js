@@ -73,7 +73,7 @@ export default function TelaParques(){
             <Text
               style={{
                 marginLeft: 140,
-                marginTop: -115,
+                marginTop: -145,
                 fontSize: 18,
               }}
             >
@@ -83,8 +83,8 @@ export default function TelaParques(){
             <Text
               style={{
                 marginLeft: 140,
-                marginTop: 15,
-                fontSize: 12,
+                marginTop: 10,
+                fontSize: 10,
               }}
             >
               {item.descricao}

@@ -15,59 +15,90 @@ const schema = yup.object({
 })
 
 export default function Cadastro(){ 
-  const [nome, setNome] = useState('');
-  const [mensagemErro, setMensagemErro] = useState('');
+    const [nome, setNome] = useState('');
+    const [mensagemErro, setMensagemErro] = useState('');
     const navigation = useNavigation();
-    const {control, handleSubmit, formState: {errors} } = useForm({
+
+      const {control, handleSubmit, formState: {errors} } = useForm({
       resolver: yupResolver(schema)
-    })
+})
 
     function handleSignIn(data){
         fetch('https://tcc-production-e100.up.railway.app/api/usuario', {
-  method: 'POST',
-  body: JSON.stringify({
-    email: data.email,
-    senha: data.password,
-   
-  }),
+            method: 'POST',
+            body: JSON.stringify({
+            email: data.email,
+            senha: data.password,
+          
+}),
+
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
+
+    }).then(response => {
+      if(response.status == 400){
+        Alert.alert("Ops!","esse email a esta em uso")
+      }else if (response.status == 201){
+        Alert.alert("Sucesso!","cadastrado com sucesso")
+      }else{
+        Alert.alert("Ops!","Erro no servidor verifique o email e tente novamente!")
+
+      }
 })
 
-.catch(errors =>{
-  console.error("Erro durante a requisição:", errors);
-  Alert.alert("Erro", "Ocorreu um erro durante a requisição");
+    .catch(errors =>{
+      console.error("Erro durante a requisição:", errors);
+      Alert.alert("Erro", "Ocorreu um erro durante a requisição");
 });
-    }
+}
 
-    const [cep, setCep] = useState('');
+const [cep, setCep] = useState('');
     const [mensagemError, setMensagemError] = useState('');
-  const [endereco, setEndereco] = useState('');
+    const [endereco, setEndereco] = useState('');
 
-  const buscarCep = () => {
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.erro) {
-          setEndereco(`CEP: ${data.cep} - ${data.logradouro}, ${data.localidade} - ${data.uf}`);
-        } else {
-          setEndereco('CEP não encontrado');
-        }
-      })
-      .catch((error) => {
-        console.error('Erro ao buscar CEP:', error);
-      });
-  };
+const buscarCep = () => {
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data.erro) {
+        const enderecoCompleto = `${data.logradouro}, ${data.localidade}, ${data.uf}, Brazil`;
+        
+        // Requisição para o serviço de geocodificação do OpenStreetMap Nominatim
+        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}`)
+          .then((response) => response.json())
+          .then((geoData) => {
+            if (geoData.length > 0) {
+              const { lat, lon } = geoData[0];
+              setEndereco(`CEP: ${data.cep} - ${data.logradouro}, ${data.localidade} - ${data.uf}`);
+              console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+            } else {
+              setEndereco('Endereço não encontrado');
+            }
+          })
+          .catch((error) => {
+            console.error('Erro ao obter coordenadas:', error);
+          });
+      } else {
+        setEndereco('CEP não encontrado');
+      }
+    })
+    .catch((error) => {
+      console.error('Erro ao buscar CEP:', error);
+    });
+};
 
-  const handleInputChange = (text) => {
+
+
+
+    const handleInputChange = (text) => {
     // Remove caracteres não numéricos e define o estado do cep
     const formattedCep = text.replace(/[^0-9]/g, '');
     setCep(formattedCep);
     setMensagemError('Por favor, digite apenas números.');
-  };
+};
 
-  const handleInputChangee = (text) => {
+    const handleInputChangee = (text) => {
     // Expressão regular para verificar se o texto contém apenas letras e espaços
     const regex = /^[a-zA-Z\s]*$/;
     if (regex.test(text)) {
@@ -82,7 +113,7 @@ export default function Cadastro(){
 
       return(
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
-            <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('iniciar')} >
+            <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('Iniciar')} >
                 <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Cadastro</Text>
             </TouchableOpacity>
 
@@ -100,7 +131,7 @@ export default function Cadastro(){
                     onChangeText={handleInputChangee}
                     value={nome}
                   />
-             {mensagemErro !== '' && <Text style={{ color: '#ff375b', marginTop: 10 }}>{mensagemErro}</Text>}
+             {mensagemErro !== '' && <Text style={{ color: '#ff375b', marginTop: 10, left: 10 }}>{mensagemErro}</Text>}
 
             <Text style={{fontSize: 20, left: 20, marginTop: 30}}>CEP:</Text>
 
@@ -114,7 +145,7 @@ export default function Cadastro(){
                 onChangeText={handleInputChange}
                 value={cep} 
               />
-              {mensagemError !== '' && <Text style={{ color: '#ff375b', marginTop: 10 }}>{mensagemError}</Text>}
+              {mensagemError !== '' && <Text style={{ color: '#ff375b', marginTop: 10, left: 10 }}>{mensagemError}</Text>}
 
            {endereco !== '' && <Text style={{ marginTop: 20 }}>{endereco}</Text>}
 
@@ -175,5 +206,3 @@ export default function Cadastro(){
       );
       
 }
-
-

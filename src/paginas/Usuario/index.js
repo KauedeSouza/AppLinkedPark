@@ -56,7 +56,7 @@ export default function Usuario(){
           >
             <Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} />
 
-            <Text style={{marginTop:-65, marginLeft:115, fontSize:20}}>{email}</Text>
+            <Text style={{marginTop:-65, marginLeft:90, fontSize:19}}>{email}</Text>
           </View>
 
 
@@ -64,12 +64,12 @@ export default function Usuario(){
           <View
             style={{
               backgroundColor: '#B1D3C1',
-              marginTop: 30,
+              marginTop: 50,
 
               borderRadius: 20,
               width: 330,
               height: 125,
-              marginLeft: 13,
+              marginLeft: 22,
             }}
           >
           
@@ -84,12 +84,12 @@ export default function Usuario(){
               borderRadius: 20,
               width: 330,
               height: 120,
-              marginLeft: 13,
+              marginLeft: 22,
             }}
           >
 
             <TouchableOpacity onPress={ () => navigation.navigate('TelaSobreoApp')}><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sobre App</Text></TouchableOpacity>
-            <TouchableOpacity onPress={ () => navigation.navigate('iniciar')}><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sair</Text></TouchableOpacity>
+            <TouchableOpacity onPress={ () => navigation.navigate('Iniciar')}><Text style={{marginTop:20, marginLeft:30, fontSize:20}}>Sair</Text></TouchableOpacity>
 
           </View>
 
