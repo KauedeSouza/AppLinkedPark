@@ -194,7 +194,7 @@ const buscarCep = () => {
               />
               {errors.password && <Text style={styles.Error}>{errors.password?.message}</Text>}
 
-            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(buscarCep)} >
+            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(buscarCep, handleSignIn)} >
             <Text style={{color: '#FFF'}}>Cadastrar</Text>
           </TouchableOpacity>
 
