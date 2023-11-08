@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
@@ -31,10 +31,6 @@ AsyncStorage.clear.apply
 
           <TouchableOpacity style={styles.Segundobotao} onPress={ () => navigation.navigate('Cadastro') }>
             <Text style={{color: '#2F4F4F'}}>Não tem conta? - Cadastre-se</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaInicial') }>
-            <Text style={{color: '#FFF', fontSize: 25}}>Pular  <Icon name="rightcircle" size={30} color='#FFF'/></Text>
           </TouchableOpacity>
         </View>
         

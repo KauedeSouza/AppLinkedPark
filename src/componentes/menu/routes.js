@@ -62,13 +62,14 @@ export default function Routes(){
                          height: 65,
                          marginTop: -33
                          }}
-                         onPress={ ()=> navigation.navigate('Pesquisa')}>
-                        <Icon name="search1"
-                        size={30}
+                         
+                         >
+                        <Icons name="location-pin"
+                        size={40}
                         color='#fff' 
                         style={{
-                             marginLeft: 20,
-                            marginTop: 17
+                             marginLeft: 14,
+                            marginTop: 13
                          }}/>
                  </TouchableOpacity>
 

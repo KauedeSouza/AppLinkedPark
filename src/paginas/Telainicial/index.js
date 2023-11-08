@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Image, TextInput, TouchableOpacity, Text, Alert, ScrollView} from 'react-native';
 import Iconss from 'react-native-vector-icons/FontAwesome';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import Carrosel from '../../componentes/carrosel';
 import styles from './style';
@@ -29,8 +30,7 @@ if(route.params == null ){
           <ScrollView>
           <View style={styles.view}>
                 <TouchableOpacity onPress={ () => navigation.navigate('Usuario')}><Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} /></TouchableOpacity>
-                <TextInput style={styles.Input} placeholder= 'Pesquisar'/>
-                
+                <TouchableOpacity onPress={ () => navigation.navigate('Pesquisa')}><Icon name="search1"size={30} color='#17A558' style={{marginLeft: 250, marginTop: 11}}/></TouchableOpacity>
             </View>
 
             <Carrosel></Carrosel> 
@@ -50,7 +50,7 @@ if(route.params == null ){
             <Text style={{fontSize:30, marginTop: 30, marginLeft: 55}}>Parque Recomendado</Text>
  
 
-            <TouchableOpacity style={{height: 160}} >
+            <TouchableOpacity style={{height: 160}} onPress={ () => navigation.navigate('TelaDetalhes')}>
             <View style={{backgroundColor: '#B1D3C1', marginTop: 25, borderRadius: 35, width: 315, height: 150, marginLeft: 20}}>
                         <Image source= {require('../../Imagens/PQDC.jpg')} style={styles.Imagens} />
 
