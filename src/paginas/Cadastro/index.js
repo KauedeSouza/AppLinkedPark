@@ -23,20 +23,35 @@ export default function Cadastro(){
       resolver: yupResolver(schema)
 })
 
+
     function handleSignIn(data){
-        fetch('https://tcc-production-e100.up.railway.app/api/usuario', {
+    const headers = {
+        'Content-type': 'application/json; charset=UTF-8',
+      }
+      
+      const dataToPost = {
+        nome: nome,
+        email: data.email,
+        senha: data.password,
+        cep: cep,
+        bairro: data.bairro, // Substitua 'data.bairro' pelo valor apropriado
+        localidade: data.localidade, // Substitua 'data.localidade' pelo valor apropriado
+        logradouro: data.logradouro, // Substitua 'data.logradouro' pelo valor apropriado
+        uf: data.uf, // Substitua 'data.uf' pelo valor apropriado
+        latitude: latitude,
+        longitude: longitude,
+      };
+      
+      // Converte o objeto em JSON
+      const jsonData = JSON.stringify(dataToPost);
+      
+      fetch('http://tcc-production-e100.up.railway.app/api/usuario', {
             method: 'POST',
-            body: JSON.stringify({
-            email: data.email,
-            senha: data.password,
+            body: jsonData,
+            headers: headers
+
           
-}),
-
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-
-    }).then(response => {
+}).then(response => {
       if(response.status == 400){
         Alert.alert("Ops!","esse email a esta em uso")
       }else if (response.status == 201){
@@ -51,43 +66,50 @@ export default function Cadastro(){
       console.error("Erro durante a requisição:", errors);
       Alert.alert("Erro", "Ocorreu um erro durante a requisição");
 });
+
 }
+const [latitude, setLatitude] = useState(null);
+const [longitude, setLongitude] = useState(null);
 
 const [cep, setCep] = useState('');
     const [mensagemError, setMensagemError] = useState('');
     const [endereco, setEndereco] = useState('');
 
-const buscarCep = () => {
-  fetch(`https://viacep.com.br/ws/${cep}/json/`)
-    .then((response) => response.json())
-    .then((data) => {
-      if (!data.erro) {
-        const enderecoCompleto = `${data.logradouro}, ${data.localidade}, ${data.uf}, Brazil`;
-        
-        // Requisição para o serviço de geocodificação do OpenStreetMap Nominatim
-        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}`)
-          .then((response) => response.json())
-          .then((geoData) => {
-            if (geoData.length > 0) {
-              const { lat, lon } = geoData[0];
-              setEndereco(`CEP: ${data.cep} - ${data.logradouro}, ${data.localidade} - ${data.uf}`);
-              console.log(`Latitude: ${lat}, Longitude: ${lon}`);
-            } else {
-              setEndereco('Endereço não encontrado');
-            }
-          })
-          .catch((error) => {
-            console.error('Erro ao obter coordenadas:', error);
-          });
-      } else {
-        setEndereco('CEP não encontrado');
-      }
-    })
-    .catch((error) => {
-      console.error('Erro ao buscar CEP:', error);
-    });
-};
-
+    const buscarCep = () => {
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data.erro) {
+            const enderecoCompleto = `${data.logradouro}, ${data.localidade}, ${data.uf}, Brazil`;
+    
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}`)
+              .then((response) => response.json())
+              .then((geoData) => {
+                if (geoData.length > 0) {
+                  const { lat, lon } = geoData[0];
+                  setEndereco(`CEP: ${data.cep} - ${data.logradouro}, ${data.localidade} - ${data.uf}`);
+                  setLatitude(lat);
+                  setLongitude(lon);
+                  console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+    
+                  // Após obter a latitude e a longitude, chame a função para cadastrar os dados do formulário
+                  handleSignIn({ email: data.email, password: data.password, latitude, longitude });
+                } else {
+                  setEndereco('Endereço não encontrado');
+                }
+              })
+              .catch((error) => {
+                console.error('Erro ao obter coordenadas:', error);
+              });
+          } else {
+            setEndereco('CEP não encontrado');
+          }
+        })
+        .catch((error) => {
+          console.error('Erro ao buscar CEP:', error);
+        });
+    };
+    
 
 
 
@@ -194,7 +216,7 @@ const buscarCep = () => {
               />
               {errors.password && <Text style={styles.Error}>{errors.password?.message}</Text>}
 
-            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(buscarCep, handleSignIn)} >
+            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(buscarCep, handleSignIn(cep,nome))} >
             <Text style={{color: '#FFF'}}>Cadastrar</Text>
           </TouchableOpacity>
 
