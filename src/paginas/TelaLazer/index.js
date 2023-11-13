@@ -51,7 +51,7 @@ export default function TelaLazer(){
       <View style= {{flex:1, backgroundColor: '#FFF'}}>
       <ScrollView>
                 <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate('TelaInicial')} >
-                <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Lazer</Text>
+                <Text style={{color: '#000',fontSize: 35, left: 30, marginTop: 60}}><Icon name="leftcircle" size={40} color='#17A558'/>  Locais</Text>
             </TouchableOpacity>
 
             {dados.map((item, index) => (

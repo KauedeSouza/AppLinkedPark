@@ -1,13 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, WebView } from 'react-native';
+import { View, ImageBackground, StyleSheet } from 'react-native';
 
-const MapComponent = () => {
+const MapComponent = ({ latitude, longitude }) => {
+  const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=14&size=600x600&maptype=roadmap&key=AIzaSyDLLFCYxuJxMsVpnIHEWsaXGsP1oAHQDLY`;
+
   return (
     <View style={styles.container}>
-      <WebView
-        source={{ uri: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387729.9488450536!2d-122.41941597288994!3d37.77492992442145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809b6b3f7db1%3A0x4e5b8f3756e31f60!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1576749230725!5m2!1sen!2sus' }}
-        style={styles.map}
-      />
+      <ImageBackground source={{ uri: mapUrl }} style={styles.map} />
     </View>
   );
 };

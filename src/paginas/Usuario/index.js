@@ -6,6 +6,7 @@ import Routes from '../../componentes/menu/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/AntDesign';
 
+
 export default function Usuario(){
     const navigation = useNavigation();
     const [email, setEmail] = useState('');
@@ -55,6 +56,7 @@ export default function Usuario(){
             
           >
             <Image source= {require('../../Imagens/perfilimg.jpg')} style={styles.Imagem} />
+            
 
             <Text style={{marginTop:-65, marginLeft:90, fontSize:19}}>{email}</Text>
           </View>

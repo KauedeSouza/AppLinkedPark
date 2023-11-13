@@ -6,11 +6,13 @@ import Iconss from 'react-native-vector-icons/FontAwesome';
 import Iconsss from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../../paginas/Telainicial/style';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function Routes(){ 
     const navigation = useNavigation();
-
+    const latitude = AsyncStorage.getItem("latitude")
+    const longetude = AsyncStorage.getItem("longetude")
       return(
         <View style= {{  
         position: 'absolute',
@@ -62,7 +64,7 @@ export default function Routes(){
                          height: 65,
                          marginTop: -33
                          }}
-                         
+                         onPress={ () => navigation.navigate('TelaMaps',latitude,longetude) }
                          >
                         <Icons name="location-pin"
                         size={40}

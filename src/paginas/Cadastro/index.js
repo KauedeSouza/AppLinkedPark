@@ -16,6 +16,8 @@ const schema = yup.object({
 
 export default function Cadastro(){ 
     const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
     const [mensagemErro, setMensagemErro] = useState('');
     const navigation = useNavigation();
 
@@ -24,52 +26,49 @@ export default function Cadastro(){
 })
 
 
-    function handleSignIn(data){
-    const headers = {
-        'Content-type': 'application/json; charset=UTF-8',
+function handleSignIn(data, lat, lon) {
+  const headers = {
+    'Content-type': 'application/json; charset=UTF-8',
+  };
+
+  const dataToPost = {
+    nome: nome, // Utiliza o nome vindo do formulário
+    email: email,
+    senha: senha,
+    cep: data.cep, // Utiliza o CEP vindo do formulário
+    bairro: data.bairro, // Substitua 'data.bairro' pelo valor apropriado
+    localidade: data.localidade, // Substitua 'data.localidade' pelo valor apropriado
+    logradouro: data.logradouro, // Substitua 'data.logradouro' pelo valor apropriado
+    uf: data.uf, // Substitua 'data.uf' pelo valor apropriado
+    latitude: lat, // Utiliza a latitude vinda do formulário
+    longetude: lon, // Utiliza a longitude vinda do formulário
+  };
+
+  // Converte o objeto em JSON
+  const jsonData = JSON.stringify(dataToPost);
+
+  fetch('http://localhost:8080/api/usuario', {
+    method: 'POST',
+    body: jsonData,
+    headers: headers
+  })
+    .then(response => {
+      if (response.status == 400) {
+        Alert.alert("Ops!", "Esse e-mail já está em uso");
+      } else if (response.status == 201) {
+        Alert.alert("Sucesso!", "Cadastrado com sucesso");
+      } else {
+        Alert.alert("Ops!", "Erro no servidor. Verifique o e-mail e tente novamente!");
       }
-      
-      const dataToPost = {
-        nome: nome,
-        email: data.email,
-        senha: data.password,
-        cep: cep,
-        bairro: data.bairro, // Substitua 'data.bairro' pelo valor apropriado
-        localidade: data.localidade, // Substitua 'data.localidade' pelo valor apropriado
-        logradouro: data.logradouro, // Substitua 'data.logradouro' pelo valor apropriado
-        uf: data.uf, // Substitua 'data.uf' pelo valor apropriado
-        latitude: latitude,
-        longitude: longitude,
-      };
-      
-      // Converte o objeto em JSON
-      const jsonData = JSON.stringify(dataToPost);
-      
-      fetch('http://tcc-production-e100.up.railway.app/api/usuario', {
-            method: 'POST',
-            body: jsonData,
-            headers: headers
-
-          
-}).then(response => {
-      if(response.status == 400){
-        Alert.alert("Ops!","esse email a esta em uso")
-      }else if (response.status == 201){
-        Alert.alert("Sucesso!","cadastrado com sucesso")
-      }else{
-        Alert.alert("Ops!","Erro no servidor verifique o email e tente novamente!")
-
-      }
-})
-
-    .catch(errors =>{
+    })
+    .catch(errors => {
       console.error("Erro durante a requisição:", errors);
       Alert.alert("Erro", "Ocorreu um erro durante a requisição");
-});
-
+    });
 }
-const [latitude, setLatitude] = useState(null);
-const [longitude, setLongitude] = useState(null);
+
+const [latitude, setLatitude] = useState('');
+const [longitude, setLongitude] = useState('');
 
 const [cep, setCep] = useState('');
     const [mensagemError, setMensagemError] = useState('');
@@ -91,10 +90,10 @@ const [cep, setCep] = useState('');
                   setLatitude(lat);
                   setLongitude(lon);
                   console.log(`Latitude: ${lat}, Longitude: ${lon}`);
-    
+                  handleSignIn(data, lat, lon);
                   // Após obter a latitude e a longitude, chame a função para cadastrar os dados do formulário
-                  handleSignIn({ email: data.email, password: data.password, latitude, longitude });
-                } else {
+
+                 } else {
                   setEndereco('Endereço não encontrado');
                 }
               })
@@ -129,6 +128,26 @@ const [cep, setCep] = useState('');
     } else {
       setMensagemErro('Por favor, digite apenas letras e espaços.');
     }
+  };
+
+  const handleInputChangeee = (text) => {
+    // Expressão regular para verificar se o texto contém apenas letras e espaços
+
+ 
+      setEmail(text);
+
+
+  };
+
+  const handleInputChangeeee = (text) => {
+    // Expressão regular para verificar se o texto contém apenas letras e espaços
+
+ 
+      setSenha(text);
+     
+
+
+   
   };
 
 
@@ -184,9 +203,9 @@ const [cep, setCep] = useState('');
                       borderColor: errors.email && '#ff375b'
                     } ]} 
 
-                    onChangeText={onChange}
+                    onChangeText={handleInputChangeee}
                     onBlur={onBlur}
-                    value={value}
+                    value={email}
                     placeholder='  Digite seu E-mail'
                   />
                 )}
@@ -206,9 +225,9 @@ const [cep, setCep] = useState('');
                       borderColor: errors.password && '#ff375b'
                     } ]} 
 
-                    onChangeText={onChange}
+                    onChangeText={handleInputChangeeee}
                     onBlur={onBlur}
-                    value={value}
+                    value={senha}
                     placeholder='  Digite sua Senha'
                     secureTextEntry={true}
                   />
@@ -216,7 +235,7 @@ const [cep, setCep] = useState('');
               />
               {errors.password && <Text style={styles.Error}>{errors.password?.message}</Text>}
 
-            <TouchableOpacity style={styles.Botao} onPress={handleSubmit(buscarCep, handleSignIn(cep,nome))} >
+            <TouchableOpacity style={styles.Botao} onPress={buscarCep} >
             <Text style={{color: '#FFF'}}>Cadastrar</Text>
           </TouchableOpacity>
 

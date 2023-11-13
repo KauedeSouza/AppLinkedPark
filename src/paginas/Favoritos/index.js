@@ -76,7 +76,7 @@ export default function TelaLazer(){
             <Text
               style={{
                 marginLeft: 140,
-                marginTop: -125,
+                marginTop: -145,
                 fontSize: 18,
               }}
             >
@@ -86,8 +86,8 @@ export default function TelaLazer(){
             <Text
               style={{
                 marginLeft: 140,
-                marginTop: 3,
-                fontSize: 12,
+                marginTop: 5,
+                fontSize: 11,
               }}
             >
               {item.lazer.descricao}

@@ -14,7 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function TelaDetalhes({ route }){
-    const navigation = useNavigation();
+      const navigation = useNavigation();
   console.log(route.params)
 
    
@@ -56,7 +56,7 @@ export default function TelaDetalhes({ route }){
               'Authorization': `Bearer ${token}`
             };
               // Faça a solicitação usando o cabeçalho personalizado
-            const response = await fetch('https://tcc-production-e100.up.railway.app/api/favorito', {
+            const response = await fetch('http://localhost:8080/api/favorito', {
               method: 'POST', // ou outro método HTTP
               headers: headers,
               body: JSON.stringify({
@@ -88,11 +88,15 @@ export default function TelaDetalhes({ route }){
         <View style= {{flex:1, backgroundColor: '#FFF'}}>
           <ScrollView>
             <TouchableOpacity style={styles.botaopular} onPress={ () => navigation.navigate(redirect)} >
-                <Text style={{color: '#000',fontSize: 25, left: 5, marginTop: 60}}><Icon name="leftcircle" size={37} color='#17A558'/> {route.params.nome}</Text>
+                <Text style={{color: '#000',fontSize: 25, left: 5, marginTop: 60}}><Icon name="leftcircle" size={37} color='#17A558'/> {route.params.lazer && route.params.lazer.nome
+    ? route.params.lazer.nome
+    : route.params.nome}</Text>
             </TouchableOpacity>
 
             <View>
-                <Image source={{uri: route.params.imagem}}
+                <Image source={{  uri: route.params.lazer && route.params.lazer.imagem
+      ? route.params.lazer.imagem
+      : route.params.imagem}}
                     style={{
                     width: 370,
                     height: 170,
@@ -139,7 +143,9 @@ export default function TelaDetalhes({ route }){
                 marginTop: 15,
                 fontSize: 15,
               }}
-            >{route.params.descricao}
+            > {route.params.lazer && route.params.lazer.descricao
+              ? route.params.lazer.descricao
+              : route.params.descricao}
             </Text>
           </View>
 

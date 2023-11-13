@@ -48,6 +48,8 @@ export default function Login(){
   AsyncStorage.setItem('id',data.select.idUsuario);
   AsyncStorage.setItem('email',data.select.email);
   AsyncStorage.setItem('senha',data.select.senha);
+  AsyncStorage.setItem('latitude',data.select.latitude);
+  AsyncStorage.setItem('longetude',data.select.longetude);
   AsyncStorage.setItem('token',data.token);
  var logado = true
   navigation.navigate('TelaInicial',logado);

@@ -43,8 +43,8 @@ if(route.params == null ){
 
             <View style={styles.vieww}>
               <Text style={{marginLeft: 22}}>Parques</Text>
-              <Text style={{marginLeft: 66}}>Lazer</Text>
-              <Text style={{marginLeft: 67}}>Calendário</Text>
+              <Text style={{marginLeft: 66}}>Locais</Text>
+              <Text style={{marginLeft: 60}}>Calendário</Text>
             </View>
 
             <Text style={{fontSize:30, marginTop: 30, marginLeft: 55}}>Parque Recomendado</Text>
