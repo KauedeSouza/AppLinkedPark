@@ -47,7 +47,7 @@ function handleSignIn(data, lat, lon) {
   // Converte o objeto em JSON
   const jsonData = JSON.stringify(dataToPost);
 
-  fetch('http://localhost:8080/api/usuario', {
+  fetch('https://tcc-production-e100.up.railway.app/api/usuario', {
     method: 'POST',
     body: jsonData,
     headers: headers

@@ -56,7 +56,7 @@ export default function TelaDetalhes({ route }){
               'Authorization': `Bearer ${token}`
             };
               // Faça a solicitação usando o cabeçalho personalizado
-            const response = await fetch('http://localhost:8080/api/favorito', {
+            const response = await fetch('https://tcc-production-e100.up.railway.app/api/favorito', {
               method: 'POST', // ou outro método HTTP
               headers: headers,
               body: JSON.stringify({
