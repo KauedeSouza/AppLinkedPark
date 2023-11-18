@@ -21,6 +21,17 @@ export default function TelaCalendario(){
 
             <Text style={{fontSize:30, marginTop: 30, marginLeft: 132}}>Eventos</Text>
 
+            <View
+            style={{
+              backgroundColor: '#B1D3C1',
+              marginTop: 10,
+              borderRadius: 35,
+              width: 340,
+              height: 150,
+              marginLeft: 13,
+            }}
+          ></View>
+
                 </ScrollView>
                  <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}</Text>
 
